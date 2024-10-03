@@ -49,7 +49,8 @@ function FillExample() {
     // Adicione o Blob do PDF e o nome do arquivo
     formData.append('pdf', pdfBlob, `Tripwix-HomeForm-${formattedDate}.pdf`);
     formData.append('emailData', JSON.stringify({
-      to: process.env.REACT_APP_EMAIL_RECEIVER1 || process.env.REACT_APP_EMAIL_RECEIVER2,
+      //REACT_APP_EMAIL_RECEIVER1
+      to: process.env.REACT_APP_EMAIL_RECEIVER2 || process.env.REACT_APP_EMAIL_RECEIVER2,
       subject: 'Home Form',
       text: 'Encontra-se em anexo o Home Form criado.',
     }));
