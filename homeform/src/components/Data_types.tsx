@@ -8,6 +8,7 @@ export type FormValues = {
     NumbofPeople: number;
     NumbofBeds: number;
     NumbofBath: number;
+    NumbofHalfBath: number;
     PropContName: string;
     TelNumb: string;
     email: string;

@@ -57,8 +57,8 @@ export const Form1: React.FC<Form1Props> = ({ register, errors }) => {
                 ))}
             </select>
 
-            <label htmlFor='NumbofBath'>Number of 1/2 Bathrooms: </label>
-            <select id="NumbofBath" {...register("NumbofBath", { required: { value: false, message: "Número de 1/2 Casas de Banho Inserido" } })} >
+            <label htmlFor='NumbofHalfBath'>Number of 1/2 Bathrooms: </label>
+            <select id="NumbofHalfBath " {...register("NumbofHalfBath", { required: { value: false, message: "Número de 1/2 Casas de Banho Inserido" } })} >
                 {generateOptions().map(number => (
                     <option key={number} value={number}>{number}</option>
                 ))}
@@ -122,7 +122,6 @@ export const Form1: React.FC<Form1Props> = ({ register, errors }) => {
                 />
                 <label htmlFor="alarm-system">Alarm System</label>
             </div>
-
             <label htmlFor='SizeOfProp'>Size of property: </label>
             <input type="SizeOfProp" id="SizeOfProp" {...register("SizeOfProp", { required: { value: true, message: 'Tamanho da Propriedade necessária' } })} />
             <p className='error'>{errors.SizeOfProp?.message}</p>
