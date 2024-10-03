@@ -4,7 +4,7 @@ const nodemailer = require('nodemailer');
 const multer = require('multer'); // Importa o multer
 require('dotenv').config();
 const path = require('path');
-// const fs = require('fs'); // Importa o módulo fs para remover o pdf da pasta uploads
+const fs = require('fs'); // Importa o módulo fs para remover o pdf da pasta uploads
 
 const app = express();
 app.use(cors());
@@ -45,6 +45,11 @@ app.post('/send-email', upload.single('pdf'), async (req, res) => {
         text,
         attachments: [
             {
+                filename: 'Tripwix-HomeForm-' +
+                    new Date().toLocaleDateString('pt-PT') +
+                    ' - ' +
+                    new Date().toLocaleTimeString('pt-PT', { hour: '2-digit', minute: '2-digit' }).replace(':', '.') +
+                    '.pdf', // Altera o nome do arquivo
                 path: pdfFilePath // Anexa o PDF
             }
         ]
@@ -56,15 +61,15 @@ app.post('/send-email', upload.single('pdf'), async (req, res) => {
         // Envia a resposta ao cliente
         res.status(200).send('Email enviado com sucesso!');
 
-        /*        // Remover o arquivo após o envio (opcional)
-                fs.unlink(pdfFilePath, (err) => {
-                    if (err) {
-                        console.error('Erro ao remover o arquivo:', err);
-                        return; // Não envie outra resposta
-                    }
-                    console.log('Arquivo removido com sucesso:', pdfFilePath);
-                });
-        */
+        // Remover o arquivo após o envio (opcional)
+        fs.unlink(pdfFilePath, (err) => {
+            if (err) {
+                console.error('Erro ao remover o arquivo:', err);
+                return; // Não envie outra resposta
+            }
+            console.log('Arquivo removido com sucesso:', pdfFilePath);
+        });
+
     } catch (error) {
         console.error(error);
         res.status(500).send('Erro ao enviar o email.');
