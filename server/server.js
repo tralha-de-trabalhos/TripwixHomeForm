@@ -1,19 +1,33 @@
 const express = require('express');
 const cors = require('cors');
 const nodemailer = require('nodemailer');
+const multer = require('multer'); // Importa o multer
 require('dotenv').config();
-
+const path = require('path');
+// const fs = require('fs'); // Importa o módulo fs para remover o pdf da pasta uploads
 
 const app = express();
 app.use(cors());
 app.use(express.json());
 
-console.log(process.env.EMAIL_USER)
-console.log(process.env.EMAIL_PASS)
+// Configuração do multer
+const storage = multer.diskStorage({
+    destination: (req, file, cb) => {
+        cb(null, 'uploads'); // Define o diretório onde os arquivos serão salvos
+    },
+    filename: (req, file, cb) => {
+        cb(null, file.originalname); // Usar o nome original do arquivo
+    }
+});
 
+const upload = multer({ storage }); // Inicializa o multer com a configuração de armazenamento
 
-app.post('/send-email', async (req, res) => {
-    const { to, subject, text } = req.body;
+console.log(process.env.EMAIL_USER);
+console.log(process.env.EMAIL_PASS);
+
+app.post('/send-email', upload.single('pdf'), async (req, res) => {
+    const { to, subject, text } = JSON.parse(req.body.emailData); // Pega os dados do email
+    const pdfFilePath = path.join(__dirname, 'uploads', req.file.filename); // Caminho do PDF
 
     // Configuração do Nodemailer
     const transporter = nodemailer.createTransport({
@@ -29,11 +43,28 @@ app.post('/send-email', async (req, res) => {
         to,
         subject,
         text,
+        attachments: [
+            {
+                path: pdfFilePath // Anexa o PDF
+            }
+        ]
     };
 
     try {
         await transporter.sendMail(mailOptions);
+
+        // Envia a resposta ao cliente
         res.status(200).send('Email enviado com sucesso!');
+
+        /*        // Remover o arquivo após o envio (opcional)
+                fs.unlink(pdfFilePath, (err) => {
+                    if (err) {
+                        console.error('Erro ao remover o arquivo:', err);
+                        return; // Não envie outra resposta
+                    }
+                    console.log('Arquivo removido com sucesso:', pdfFilePath);
+                });
+        */
     } catch (error) {
         console.error(error);
         res.status(500).send('Erro ao enviar o email.');

@@ -33,26 +33,35 @@ function FillExample() {
 
   const onSubmit: SubmitHandler<FormValues> = async (data) => {
     console.log('Form Submitted', data);
-    await createPdf(data);
+    const pdfBlob = await createPdf(data); // Obtenha o Blob do PDF
 
-    // Enviar email
-    const emailData = {
-      to: process.env.REACT_APP_EMAIL_RECEIVER || 'emaildatralha69@gmail.com', // O email alterantivo para onde pode enviar caso falhe o principal
+    const formData = new FormData();
+    const now = new Date();
+    const formattedDate = now.toLocaleString('pt-PT', {
+      year: 'numeric',
+      month: '2-digit',
+      day: '2-digit',
+      hour: '2-digit',
+      minute: '2-digit',
+      hour12: false,
+    }).replace(/\//g, '.').replace(',', '').replace(' ', ' - ').replace(':', '.');
+
+    // Adicione o Blob do PDF e o nome do arquivo
+    formData.append('pdf', pdfBlob, `Tripwix-HomeForm-${formattedDate}.pdf`);
+    formData.append('emailData', JSON.stringify({
+      to: process.env.REACT_APP_EMAIL_RECEIVER || 'emaildatralha69@gmail.com',
       subject: 'Home Form',
       text: 'Encontra-se em anexo o Home Form criado.',
-    };
+    }));
 
     const response = await fetch('http://localhost:5000/send-email', {
       method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(emailData),
+      body: formData,
     });
 
     if (response.ok) {
       console.log('Email enviado com sucesso!');
-      setIsSubmitted(true); // Mark as submitted
+      setIsSubmitted(true); // Marcar como enviado
     } else {
       console.error('Erro ao enviar o email.');
     }
