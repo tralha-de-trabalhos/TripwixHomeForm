@@ -32,11 +32,16 @@ const styles = StyleSheet.create({
     },
 });
 
+
 const MyDocument = ({ formValues }: { formValues: FormValues }) => {
     // Converta a string para objeto Date se for string
     const inspectionDate = typeof formValues.InspecDate === 'string'
         ? new Date(formValues.InspecDate)
         : formValues.InspecDate;
+
+    // Verifique se `security` é um array e, se não for, use um array vazio
+    const securityValues = Array.isArray(formValues.security) ? formValues.security : [];
+
 
     return (
         <Document>
@@ -83,7 +88,7 @@ const MyDocument = ({ formValues }: { formValues: FormValues }) => {
                     <Text style={styles.value}>{formValues.NumOfStaff}</Text>
 
                     <Text style={styles.label}>Security:</Text>
-                    <Text style={styles.value}>{formValues.security.join(', ')}</Text>
+                    <Text style={styles.value}>{securityValues.join(', ') || ''}</Text>
 
                     <Text style={styles.label}>Size of Property:</Text>
                     <Text style={styles.value}>{formValues.SizeOfProp}</Text>
