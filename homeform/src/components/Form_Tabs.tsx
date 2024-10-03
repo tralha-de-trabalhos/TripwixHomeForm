@@ -33,13 +33,13 @@ function FillExample() {
 
   const onSubmit: SubmitHandler<FormValues> = async (data) => {
     console.log('Form Submitted', data);
-    await createPdf(data); // Se você estiver gerando um PDF
+    await createPdf(data);
 
     // Enviar email
     const emailData = {
-      to: process.env.REACT_APP_EMAIL_RECEIVER || 'emaildatralha69@gmail.com', // O email para onde enviar
-      subject: 'Olá Pedro',
-      text: 'Olá Pedro',
+      to: process.env.REACT_APP_EMAIL_RECEIVER || 'emaildatralha69@gmail.com', // O email alterantivo para onde pode enviar caso falhe o principal
+      subject: 'Home Form',
+      text: 'Encontra-se em anexo o Home Form criado.',
     };
 
     const response = await fetch('http://localhost:5000/send-email', {
