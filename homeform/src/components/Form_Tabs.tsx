@@ -33,8 +33,29 @@ function FillExample() {
 
   const onSubmit: SubmitHandler<FormValues> = async (data) => {
     console.log('Form Submitted', data);
-    await createPdf(data);
-    setIsSubmitted(true);
+    await createPdf(data); // Se você estiver gerando um PDF
+
+    // Enviar email
+    const emailData = {
+      to: process.env.REACT_APP_EMAIL_RECEIVER || 'emaildatralha69@gmail.com', // O email para onde enviar
+      subject: 'Olá Pedro',
+      text: 'Olá Pedro',
+    };
+
+    const response = await fetch('http://localhost:5000/send-email', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(emailData),
+    });
+
+    if (response.ok) {
+      console.log('Email enviado com sucesso!');
+      setIsSubmitted(true); // Mark as submitted
+    } else {
+      console.error('Erro ao enviar o email.');
+    }
   };
 
   //gerir a proxima página
