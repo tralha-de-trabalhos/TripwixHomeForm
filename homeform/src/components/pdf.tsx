@@ -1,6 +1,6 @@
 import React from 'react';
 import { Page, Text, View, Document, StyleSheet, pdf } from '@react-pdf/renderer';
-import { saveAs } from 'file-saver'; // Para o download do PDF
+// import { saveAs } from 'file-saver'; // Para o download do PDF
 import { FormValues } from './Data_types';
 
 // Estilos para o PDF
@@ -155,19 +155,8 @@ const MyDocument = ({ formValues }: { formValues: FormValues }) => {
 };
 
 // Função para criar o PDF
+// Função para criar o PDF e retornar um Blob
 export const createPdf = async (formValues: FormValues) => {
     const blob = await pdf(<MyDocument formValues={formValues} />).toBlob();
-
-    // Formatar a data e hora sem os segundos
-    const now = new Date();
-    const formattedDate = now.toLocaleString('pt-PT', {
-        year: 'numeric',
-        month: '2-digit',
-        day: '2-digit',
-        hour: '2-digit',
-        minute: '2-digit',
-        hour12: false, // Para usar o formato 24 horas
-    }).replace(/\//g, '.').replace(',', '').replace(' ', ' - ').replace(':', '.');
-
-    saveAs(blob, `Tripwix-HomeForm-${formattedDate}.pdf`);
+    return blob; // Retorne o Blob do PDF
 };
