@@ -46,7 +46,7 @@ export const Tab8: React.FC<Tab8Props> = ({ register, errors }) => {
                     </select>
                     <p className='error'>{errors.Bedrooms?.[index]?.Bedroom?.message}</p>
 
-                    <label htmlFor={`RoomName${index}`}>Room name: </label>
+                    <label htmlFor={`RoomName${index}`}>Room Name: </label>
                     <input type="text" id={`RoomName${index}`} {...register(`Bedrooms.${index}.RoomName`, { required: { value: true, message: 'Especifique o nome do quarto' } })} />
                     <p className='error'>{errors.Bedrooms?.[index]?.RoomName?.message}</p>
 
@@ -76,7 +76,7 @@ export const Tab8: React.FC<Tab8Props> = ({ register, errors }) => {
                     <p className='error'>{errors.Bedrooms?.[index]?.Bedroom?.message}</p>
 
                     <div>
-                        <label htmlFor={`NumOfAditionalBeds${index}`}>Number of additional beds: </label>
+                        <label htmlFor={`NumOfAditionalBeds${index}`}>Number of Additional Beds: </label>
                         <select id={`NumOfAditionalBeds${index}`} {...register(`Bedrooms.${index}.NumOfAditionalBeds`, { required: { value: false, message: "Número de Camas Adicionais" } })} >
                             {generateOptions().map(number => (
                                 <option key={number} value={number}>{number}</option>
