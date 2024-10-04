@@ -2,26 +2,26 @@ export type FormValues = {
     //Tab1
     Ambname: string;
     TWname: string;
-    coord: string;
-    ciirusID: string;
+    Coord: string;
+    CiirusID: string;
     RFC: string;
-    NumbofPeople: number;
-    NumbofBeds: number;
-    NumbofBath: number;
-    NumbofHalfBath: number;
+    NumbOfPeople: number;
+    NumbOfBeds: number;
+    NumbOfBath: number;
+    NumbOfHalfBath: number;
     PropContName: string;
     TelNumb: string;
-    email: string;
-    adress: string;
+    Email: string;
+    Adress: string;
     NumOfStaff: number;
-    security: string[];
+    Security: string[];
     SizeOfProp: string;
     SizeOfLot: string;
     YearBuilt: number;
     GarageSpaces: number;
     ParkingSpaces: number;
-    category: string;
-    TypeofProp: string;
+    Category: string;
+    TypeOfProp: string;
     NumbOfFloorsInBuilding: number;
     NumbOfFloorsInProp: number;
     GenExtDescrip: string;
@@ -29,6 +29,10 @@ export type FormValues = {
     RelationshipToProp: string;
     OwnerProfile: string;
     //Tab3
+    ChannelPartnerListed: string[];
+    PlacesWhereHouseMarketed: string;
+    Website: string;
+    ExpectedRates: string;
     //Tab4
     //Tab5
     //Tab6

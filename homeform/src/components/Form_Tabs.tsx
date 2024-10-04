@@ -107,12 +107,12 @@ function FillExample() {
             <Button variant="secondary" onClick={handlePreviousTab}>Previous Page</Button>
             <Button variant="secondary" onClick={handleNextTab}>Next Page</Button>
           </Tab>
-          {/*
           <Tab eventKey="tab3" title="Property Commercial Overview">
             <Tab3 register={register} errors={errors} />
             <Button variant="secondary" onClick={handlePreviousTab}>Previous Page</Button>
             <Button variant="secondary" onClick={handleNextTab}>Next Page</Button>
           </Tab>
+          {/*
           <Tab eventKey="tab4" title="Property Overview">
             <Tab4 register={register} errors={errors} />
             <Button variant="secondary" onClick={handlePreviousTab}>Previous Page</Button>
