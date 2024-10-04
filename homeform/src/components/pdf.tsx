@@ -39,8 +39,10 @@ const MyDocument = ({ formValues }: { formValues: FormValues }) => {
         ? new Date(formValues.InspecDate)
         : formValues.InspecDate;
 
-    // Verifique se `security` é um array e, se não for, use um array vazio
-    const securityValues = Array.isArray(formValues.security) ? formValues.security : [];
+    // Verifique se 'Security' é um array e, se não for, usa um array vazio
+    const securityValues = Array.isArray(formValues.Security) ? formValues.Security : [];
+    // Verifique se 'Security' é um array e, se não for, usa um array vazio
+    const channelPartnerListedValues = Array.isArray(formValues.ChannelPartnerListed) ? formValues.ChannelPartnerListed : [];
 
 
     return (
@@ -55,22 +57,22 @@ const MyDocument = ({ formValues }: { formValues: FormValues }) => {
                     <Text style={styles.value}>{formValues.TWname}</Text>
 
                     <Text style={styles.label}>Coord:</Text>
-                    <Text style={styles.value}>{formValues.coord}</Text>
+                    <Text style={styles.value}>{formValues.Coord}</Text>
 
                     <Text style={styles.label}>Ciirus ID:</Text>
-                    <Text style={styles.value}>{formValues.ciirusID}</Text>
+                    <Text style={styles.value}>{formValues.CiirusID}</Text>
 
                     <Text style={styles.label}>RFC:</Text>
                     <Text style={styles.value}>{formValues.RFC}</Text>
 
                     <Text style={styles.label}>Number of People:</Text>
-                    <Text style={styles.value}>{formValues.NumbofPeople}</Text>
+                    <Text style={styles.value}>{formValues.NumbOfPeople}</Text>
 
                     <Text style={styles.label}>Number of Beds:</Text>
-                    <Text style={styles.value}>{formValues.NumbofBeds}</Text>
+                    <Text style={styles.value}>{formValues.NumbOfBeds}</Text>
 
                     <Text style={styles.label}>Number of Bathrooms:</Text>
-                    <Text style={styles.value}>{formValues.NumbofBath}</Text>
+                    <Text style={styles.value}>{formValues.NumbOfBath}</Text>
 
                     <Text style={styles.label}>Property Contact Name:</Text>
                     <Text style={styles.value}>{formValues.PropContName}</Text>
@@ -79,10 +81,10 @@ const MyDocument = ({ formValues }: { formValues: FormValues }) => {
                     <Text style={styles.value}>{formValues.TelNumb}</Text>
 
                     <Text style={styles.label}>Email:</Text>
-                    <Text style={styles.value}>{formValues.email}</Text>
+                    <Text style={styles.value}>{formValues.Email}</Text>
 
                     <Text style={styles.label}>Address:</Text>
-                    <Text style={styles.value}>{formValues.adress}</Text>
+                    <Text style={styles.value}>{formValues.Adress}</Text>
 
                     <Text style={styles.label}>Number of Staff:</Text>
                     <Text style={styles.value}>{formValues.NumOfStaff}</Text>
@@ -106,10 +108,10 @@ const MyDocument = ({ formValues }: { formValues: FormValues }) => {
                     <Text style={styles.value}>{formValues.ParkingSpaces}</Text>
 
                     <Text style={styles.label}>Category:</Text>
-                    <Text style={styles.value}>{formValues.category}</Text>
+                    <Text style={styles.value}>{formValues.Category}</Text>
 
                     <Text style={styles.label}>Type of Property:</Text>
-                    <Text style={styles.value}>{formValues.TypeofProp}</Text>
+                    <Text style={styles.value}>{formValues.TypeOfProp}</Text>
 
                     <Text style={styles.label}>Number of Floors in Building:</Text>
                     <Text style={styles.value}>{formValues.NumbOfFloorsInBuilding}</Text>
@@ -128,6 +130,17 @@ const MyDocument = ({ formValues }: { formValues: FormValues }) => {
                     <Text style={styles.value}>{formValues.OwnerProfile}</Text>
 
                     {/* Tab3 */}
+                    <Text style={styles.label}>Channel Partnes Where is Listed:</Text>
+                    <Text style={styles.value}>{channelPartnerListedValues.join(', ') || ''}</Text>
+
+                    <Text style={styles.label}>Places where the house is already marketed:</Text>
+                    <Text style={styles.value}>{formValues.PlacesWhereHouseMarketed}</Text>
+
+                    <Text style={styles.label}>Website internet address (when exists):</Text>
+                    <Text style={styles.value}>{formValues.Website}</Text>
+
+                    <Text style={styles.label}>Expected Rates to Owner (Without TW Commission):</Text>
+                    <Text style={styles.value}>{formValues.ExpectedRates}</Text>
 
                     {/* Tab4 */}
 
