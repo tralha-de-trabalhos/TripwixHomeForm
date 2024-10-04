@@ -5,19 +5,19 @@ import Tabs from 'react-bootstrap/Tabs';
 import Button from 'react-bootstrap/Button';
 import { createPdf } from './pdf';
 
-import { Form1 } from './Form1';
-import { Form2 } from './Form2';
-import { Form3 } from './Form3';
-import { Form4 } from './Form4';
-import { Form5 } from './Form5';
-import { Form6 } from './Form6';
-import { Form7 } from './Form7';
-import { Form8 } from './Form8';
-import { Form9 } from './Form9';
-import { Form10 } from './Form10';
-import { Form11 } from './Form11';
-import { Form12 } from './Form12';
-import { Form13 } from './Form13';
+import { Tab1 } from './Tab1';
+import { Tab2 } from './Tab2';
+import { Tab3 } from './Tab3';
+import { Tab4 } from './Tab4';
+import { Tab5 } from './Tab5';
+import { Tab6 } from './Tab6';
+import { Tab7 } from './Tab7';
+import { Tab8 } from './Tab8';
+import { Tab9 } from './Tab9';
+import { Tab10 } from './Tab10';
+import { Tab11 } from './Tab11';
+import { Tab12 } from './Tab12';
+import { Tab13 } from './Tab13';
 
 import { FormValues } from './Data_types';
 
@@ -99,68 +99,68 @@ function FillExample() {
       <form onSubmit={handleSubmit(onSubmit)}>
         <Tabs activeKey={activeTab} onSelect={(k) => setActiveTab(k || '')} id="fill-tab-example" className="mb-3" fill>
           <Tab eventKey="tab1" title="House Walkthrough Form">
-            <Form1 register={register} errors={errors} />
+            <Tab1 register={register} errors={errors} />
             <Button variant="secondary" onClick={handleNextTab}>Next Page</Button>
           </Tab>
           <Tab eventKey="tab2" title="Owner Overview">
-            <Form2 register={register} errors={errors} />
+            <Tab2 register={register} errors={errors} />
             <Button variant="secondary" onClick={handlePreviousTab}>Previous Page</Button>
             <Button variant="secondary" onClick={handleNextTab}>Next Page</Button>
           </Tab>
           {/*
           <Tab eventKey="tab3" title="Property Commercial Overview">
-            <Form3 register={register} errors={errors} />
+            <Tab3 register={register} errors={errors} />
             <Button variant="secondary" onClick={handlePreviousTab}>Previous Page</Button>
             <Button variant="secondary" onClick={handleNextTab}>Next Page</Button>
           </Tab>
           <Tab eventKey="tab4" title="Property Overview">
-            <Form4 register={register} errors={errors} />
+            <Tab4 register={register} errors={errors} />
             <Button variant="secondary" onClick={handlePreviousTab}>Previous Page</Button>
             <Button variant="secondary" onClick={handleNextTab}>Next Page</Button>
           </Tab>
           <Tab eventKey="tab5" title="Services & Features">
-            <Form5 register={register} errors={errors} />
+            <Tab5 register={register} errors={errors} />
             <Button variant="secondary" onClick={handlePreviousTab}>Previous Page</Button>
             <Button variant="secondary" onClick={handleNextTab}>Next Page</Button>
           </Tab>
           <Tab eventKey="tab6" title="Interior">
-            <Form6 register={register} errors={errors} />
+            <Tab6 register={register} errors={errors} />
             <Button variant="secondary" onClick={handlePreviousTab}>Previous Page</Button>
             <Button variant="secondary" onClick={handleNextTab}>Next Page</Button>
           </Tab>
           <Tab eventKey="tab7" title="Exterior">
-            <Form7 register={register} errors={errors} />
+            <TAB7 register={register} errors={errors} />
             <Button variant="secondary" onClick={handlePreviousTab}>Previous Page</Button>
             <Button variant="secondary" onClick={handleNextTab}>Next Page</Button>
           </Tab>
           <Tab eventKey="tab8" title="Bedrooms">
-            <Form8 register={register} errors={errors} />
+            <tab8 register={register} errors={errors} />
             <Button variant="secondary" onClick={handlePreviousTab}>Previous Page</Button>
             <Button variant="secondary" onClick={handleNextTab}>Next Page</Button>
           </Tab>
           <Tab eventKey="tab9" title="Amenities">
-            <Form9 register={register} errors={errors} />
+            <Tab9 register={register} errors={errors} />
             <Button variant="secondary" onClick={handlePreviousTab}>Previous Page</Button>
             <Button variant="secondary" onClick={handleNextTab}>Next Page</Button>
           </Tab>
           <Tab eventKey="tab10" title="Attractions">
-            <Form10 register={register} errors={errors} />
+            <Tab10 register={register} errors={errors} />
             <Button variant="secondary" onClick={handlePreviousTab}>Previous Page</Button>
             <Button variant="secondary" onClick={handleNextTab}>Next Page</Button>
           </Tab>
           <Tab eventKey="tab11" title="Sports">
-            <Form11 register={register} errors={errors} />
+            <Tab11 register={register} errors={errors} />
             <Button variant="secondary" onClick={handlePreviousTab}>Previous Page</Button>
             <Button variant="secondary" onClick={handleNextTab}>Next Page</Button>
           </Tab>
           <Tab eventKey="tab12" title="Experiences">
-            <Form12 register={register} errors={errors} />
+            <Tab12 register={register} errors={errors} />
             <Button variant="secondary" onClick={handlePreviousTab}>Previous Page</Button>
             <Button variant="secondary" onClick={handleNextTab}>Next Page</Button>
           </Tab>
           */}
           <Tab eventKey="tab13" title="Validation">
-            <Form13 register={register} errors={errors} />
+            <Tab13 register={register} errors={errors} />
             <Button variant="secondary" onClick={handlePreviousTab}>Previous Page</Button>
             <button type="submit">Submit All</button>
           </Tab>

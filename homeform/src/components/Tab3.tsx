@@ -2,12 +2,12 @@ import React from 'react';
 import { UseFormRegister, FieldErrors } from 'react-hook-form';
 import { FormValues } from './Data_types';
 
-interface Form6Props {
+interface Tab3Props {
     register: UseFormRegister<FormValues>;
     errors: FieldErrors<FormValues>;
 }
 
-export const Form6: React.FC<Form6Props> = ({ register, errors }) => {
+export const Tab3: React.FC<Tab3Props> = ({ register, errors }) => {
 
     const generateOptions = () => {
         return Array.from({ length: 101 }, (_, index) => index)

@@ -3,13 +3,13 @@ import { UseFormRegister, FieldErrors } from 'react-hook-form';
 import { FormValues } from './Data_types';
 
 
-interface Form13Props {
+interface Tab13Props {
     register: UseFormRegister<FormValues>;
     errors: FieldErrors<FormValues>;
 }
 
 
-export const Form13: React.FC<Form13Props> = ({ register, errors }) => {
+export const Tab13: React.FC<Tab13Props> = ({ register, errors }) => {
 
     return (
         <div>
