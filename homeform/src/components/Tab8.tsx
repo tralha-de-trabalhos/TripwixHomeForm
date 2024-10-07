@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { FieldErrors, UseFormRegister } from 'react-hook-form';
+import { useForm, FieldErrors, UseFormRegister } from 'react-hook-form';
 import { FormValues, Bedroom } from './Data_types';
 
 interface Tab8Props {
@@ -8,38 +8,42 @@ interface Tab8Props {
 }
 
 export const Tab8: React.FC<Tab8Props> = ({ register, errors }) => {
+    const { reset, setValue, resetField, watch } = useForm<FormValues>();
     const [bedrooms, setBedrooms] = useState<Bedroom[]>([]); // Começa vazio
 
+    const emptyBedroomState: Bedroom = {
+        Bedroom: "",
+        RoomName: "",
+        Bed: "",
+        BeddingAndLinens: {
+            QualityOfLinens: 0,
+            QualityOfBedding: 0,
+            QualityOfPillow: 0,
+            QualityOfMatress: 0,
+            QualityOfTowels: 0,
+        },
+        NumOfAditionalBeds: 0,
+        ToiletryBrand: "",
+        BedroomAmenities: [],
+        Bathroom: [],
+        AdditionalNotesBedrooms: "",
+        NotesToOwnerBedrooms: "",
+    };
+
     const addBedroom = () => {
-        // Adiciona um novo quarto com dados iniciais
-        setBedrooms((prev) => [
-            ...prev,
-            {
-                Bedroom: "",
-                RoomName: "",
-                Bed: "",
-                BeddingAndLinens: {
-                    QualityOfLinens: 0,
-                    QualityOfBedding: 0,
-                    QualityOfPillow: 0,
-                    QualityOfMatress: 0,
-                    QualityOfTowels: 0,
-                },
-                NumOfAditionalBeds: 0,
-                ToiletryBrand: "",
-                BedroomAmenities: [],
-                Bathroom: [],
-                AdditionalNotesBedrooms: "",
-                NotesToOwnerBedrooms: "",
-            },
-        ]);
+        setBedrooms((prev) => [...prev, { ...emptyBedroomState }]);
     };
 
     const removeLastBedroom = () => {
-        // Remove o último quarto
-        setBedrooms((prev) => prev.slice(0, -1));
+        setBedrooms((prev) => {
+            if (prev.length > 0) {
+                const updatedBedrooms = prev.slice(0, -1); // Remove o último quarto
+                resetField(`Bedrooms.${prev.length - 1}`); // Resetar os campos do último quarto no formulário
+                return updatedBedrooms;
+            }
+            return prev;
+        });
     };
-
 
     const generateOptions1 = () => Array.from({ length: 101 }, (_, index) => index);
     const generateOptions2 = () => Array.from({ length: 6 }, (_, index) => index); // Opções de 0 a 5
@@ -350,7 +354,6 @@ export const Tab8: React.FC<Tab8Props> = ({ register, errors }) => {
                             }}
                         />
                     </div>
-
 
                 </div>
             ))}
