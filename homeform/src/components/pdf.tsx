@@ -47,9 +47,9 @@ const MyDocument = ({ formValues }: { formValues: FormValues }) => {
 
     // Verifique se 'Security' é um array e, se não for, usa um array vazio
     const securityValues = Array.isArray(formValues.Security) ? formValues.Security : [];
-    // Verifique se 'Security' é um array e, se não for, usa um array vazio
+    // Verifique se 'Channel Partner Listed Values' é um array e, se não for, usa um array vazio
     const channelPartnerListedValues = Array.isArray(formValues.ChannelPartnerListed) ? formValues.ChannelPartnerListed : [];
-
+    const bedrooms = Array.isArray(formValues.Bedrooms) ? formValues.Bedrooms : [];
 
     return (
         <Document>
@@ -172,25 +172,53 @@ const MyDocument = ({ formValues }: { formValues: FormValues }) => {
 
                     {/* Tab8 - Bedrooms */}
                     <Text style={styles.tab}>Bedrooms</Text>
-                    {formValues.Bedrooms?.map((bedroom, index) => (
-                        <View key={index}>
-                            <Text style={styles.label}>Bedroom {index + 1}:</Text>
-                            <Text style={styles.value}>{bedroom.Bedroom}</Text>
+                    {bedrooms.length > 0 ? (
 
-                            <Text style={styles.label}>Room Name:</Text>
-                            <Text style={styles.value}>{bedroom.RoomName}</Text>
+                        bedrooms.map((bedroom, index) => (
+                            <View key={index}>
+                                <Text style={styles.label}>Bedroom {index + 1}:</Text>
+                                <Text style={styles.value}>{bedroom.Bedroom}</Text>
 
+                                <Text style={styles.label}>Room Name:</Text>
+                                <Text style={styles.value}>{bedroom.RoomName}</Text>
 
-                            <Text style={styles.label}>Bed:</Text>
-                            <Text style={styles.value}>{bedroom.Bed}</Text>
+                                <Text style={styles.label}>Bed:</Text>
+                                <Text style={styles.value}>{bedroom.Bed}</Text>
 
+                                <Text style={styles.label}>Number of Additional Beds:</Text>
+                                <Text style={styles.value}>{bedroom.NumOfAditionalBeds}</Text>
 
-                            <Text style={styles.label}>Number of Additional Beds:</Text>
-                            <Text style={styles.value}>{bedroom.NumOfAditionalBeds}</Text>
+                                <Text style={styles.label}>Bedding and Linens:</Text>
+                                <Text style={styles.label}>Quality of Linens:</Text>
+                                <Text style={styles.value}>{bedroom.BeddingAndLinens.QualityOfLinens}</Text>
+                                <Text style={styles.label}>Quality of Bedding:</Text>
+                                <Text style={styles.value}>{bedroom.BeddingAndLinens.QualityOfBedding}</Text>
+                                <Text style={styles.label}>Quality of Pillow:</Text>
+                                <Text style={styles.value}>{bedroom.BeddingAndLinens.QualityOfPillow}</Text>
+                                <Text style={styles.label}>Quality of Mattress:</Text>
+                                <Text style={styles.value}>{bedroom.BeddingAndLinens.QualityOfMatress}</Text>
+                                <Text style={styles.label}>Quality of Towels:</Text>
+                                <Text style={styles.value}>{bedroom.BeddingAndLinens.QualityOfTowels}</Text>
 
-                        </View>
-                    ))}
+                                <Text style={styles.label}>Toiletry Brand:</Text>
+                                <Text style={styles.value}>{bedroom.ToiletryBrand}</Text>
 
+                                <Text style={styles.label}>Bedroom Amenities:</Text>
+                                <Text style={styles.value}>{bedroom.BedroomAmenities}</Text>
+
+                                <Text style={styles.label}>Bathroom:</Text>
+                                <Text style={styles.value}>{bedroom.Bathroom}</Text>
+
+                                <Text style={styles.label}>Additional Notes:</Text>
+                                <Text style={styles.value}>{bedroom.AdditionalNotesBedrooms}</Text>
+
+                                <Text style={styles.label}>Notes to Owner ( internal use only):</Text>
+                                <Text style={styles.value}>{bedroom.NotesToOwnerBedrooms}</Text>
+                            </View>
+                        ))
+                    ) : (
+                        <Text style={styles.value}>No rooms were added.</Text>
+                    )}
 
                     {/* Tab9 - Amenities */}
                     <Text style={styles.tab}>Amenities</Text>
@@ -218,7 +246,7 @@ const MyDocument = ({ formValues }: { formValues: FormValues }) => {
                     <Text style={styles.value}>{inspectionDate.toLocaleDateString()}</Text>
                 </View>
             </Page>
-        </Document>
+        </Document >
     );
 };
 
