@@ -188,6 +188,17 @@ const MyDocument = ({ formValues }: { formValues: FormValues }) => {
                                 <Text style={styles.label}>Number of Additional Beds:</Text>
                                 <Text style={styles.value}>{bedroom.NumOfAditionalBeds}</Text>
 
+                                {/* Renderizando tipos de camas adicionais */}
+                                {bedroom.AdditionalBeds && bedroom.AdditionalBeds.length > 0 ? (
+                                    bedroom.AdditionalBeds.map((bed, bedIndex) => (
+                                        <Text key={bedIndex} style={styles.value}>
+                                            Additional Bed {bedIndex + 1}: {bed}
+                                        </Text>
+                                    ))
+                                ) : (
+                                    <Text style={styles.value}>No additional beds specified.</Text>
+                                )}
+
                                 <Text style={styles.label}>Bedding and Linens:</Text>
                                 <Text style={styles.label}>Quality of Linens:</Text>
                                 <Text style={styles.value}>{bedroom.BeddingAndLinens.QualityOfLinens}</Text>
@@ -204,10 +215,10 @@ const MyDocument = ({ formValues }: { formValues: FormValues }) => {
                                 <Text style={styles.value}>{bedroom.ToiletryBrand}</Text>
 
                                 <Text style={styles.label}>Bedroom Amenities:</Text>
-                                <Text style={styles.value}>{bedroom.BedroomAmenities}</Text>
+                                <Text style={styles.value}>{Array.isArray(bedroom.BedroomAmenities) ? bedroom.BedroomAmenities.join(', ') : bedroom.BedroomAmenities}</Text>
 
                                 <Text style={styles.label}>Bathroom:</Text>
-                                <Text style={styles.value}>{bedroom.Bathroom}</Text>
+                                <Text style={styles.value}>{Array.isArray(bedroom.Bathroom) ? bedroom.Bathroom.join(', ') : bedroom.Bathroom}</Text>
 
                                 <Text style={styles.label}>Additional Notes:</Text>
                                 <Text style={styles.value}>{bedroom.AdditionalNotesBedrooms}</Text>

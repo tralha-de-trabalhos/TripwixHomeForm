@@ -19,6 +19,7 @@ export type Bedroom = {
     Bedroom: string;
     RoomName: string;
     Bed: string;
+    AdditionalBeds: string[],
     BeddingAndLinens: BeddingAndLinens;
     NumOfAditionalBeds: number;
     ToiletryBrand: string;

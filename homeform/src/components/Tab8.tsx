@@ -8,13 +8,14 @@ interface Tab8Props {
 }
 
 export const Tab8: React.FC<Tab8Props> = ({ register, errors }) => {
-    const { reset, setValue, resetField, watch } = useForm<FormValues>();
+    const { resetField } = useForm<FormValues>();
     const [bedrooms, setBedrooms] = useState<Bedroom[]>([]); // Começa vazio
 
     const emptyBedroomState: Bedroom = {
         Bedroom: "",
         RoomName: "",
         Bed: "",
+        AdditionalBeds: [],
         BeddingAndLinens: {
             QualityOfLinens: 0,
             QualityOfBedding: 0,
@@ -45,8 +46,15 @@ export const Tab8: React.FC<Tab8Props> = ({ register, errors }) => {
         });
     };
 
-    const generateOptions1 = () => Array.from({ length: 101 }, (_, index) => index);
-    const generateOptions2 = () => Array.from({ length: 6 }, (_, index) => index); // Opções de 0 a 5
+    const updateAdditionalBeds = (index: number, numberOfBeds: number) => {
+        setBedrooms(prev => {
+            const updated: Bedroom[] = [...prev]; // Especifica o tipo de `updated`
+            updated[index].AdditionalBeds = new Array(numberOfBeds).fill(""); // Inicializa o array com string vazia
+            return updated;
+        });
+    };
+
+    const generateOptions = () => Array.from({ length: 6 }, (_, index) => index); // Opções de 0 a 5
 
     const amenitiesOptions = [
         'AC', 'Safe', 'TV', 'Heating', 'Robes', 'WI-FI', 'Fireplace',
@@ -68,7 +76,6 @@ export const Tab8: React.FC<Tab8Props> = ({ register, errors }) => {
         'Dressing room'
     ];
 
-
     return (
         <div>
             {bedrooms.map((bedroom, index) => (
@@ -79,7 +86,7 @@ export const Tab8: React.FC<Tab8Props> = ({ register, errors }) => {
                         {...register(`Bedrooms.${index}.Bedroom`, { required: index === 0 ? "At least one bedroom is required" : false })}
                         onChange={(e) => {
                             setBedrooms(prev => {
-                                const updated = [...prev];
+                                const updated: Bedroom[] = [...prev]; // Especifica o tipo de `updated`
                                 updated[index].Bedroom = e.target.value;
                                 return updated;
                             });
@@ -100,7 +107,7 @@ export const Tab8: React.FC<Tab8Props> = ({ register, errors }) => {
                         {...register(`Bedrooms.${index}.RoomName`, { required: { value: true, message: 'Especifique o nome do quarto' } })}
                         onChange={(e) => {
                             setBedrooms(prev => {
-                                const updated = [...prev];
+                                const updated: Bedroom[] = [...prev]; // Especifica o tipo de `updated`
                                 updated[index].RoomName = e.target.value;
                                 return updated;
                             });
@@ -114,7 +121,7 @@ export const Tab8: React.FC<Tab8Props> = ({ register, errors }) => {
                         {...register(`Bedrooms.${index}.Bed`, { required: index === 0 ? "Select a Bed Type" : false })}
                         onChange={(e) => {
                             setBedrooms(prev => {
-                                const updated = [...prev];
+                                const updated: Bedroom[] = [...prev]; // Especifica o tipo de `updated`
                                 updated[index].Bed = e.target.value;
                                 return updated;
                             });
@@ -140,19 +147,57 @@ export const Tab8: React.FC<Tab8Props> = ({ register, errors }) => {
                             id={`NumOfAditionalBeds${index}`}
                             {...register(`Bedrooms.${index}.NumOfAditionalBeds`)}
                             onChange={(e) => {
+                                const numberOfBeds = Number(e.target.value);
                                 setBedrooms(prev => {
-                                    const updated = [...prev];
-                                    updated[index].NumOfAditionalBeds = Number(e.target.value);
+                                    const updated: Bedroom[] = [...prev]; // Especifica o tipo de `updated`
+                                    updated[index].NumOfAditionalBeds = numberOfBeds;
+
+                                    // Se o número de camas adicionais mudar, redefina o array de camas adicionais
+                                    updated[index].AdditionalBeds = new Array(numberOfBeds).fill(""); // Inicializa o array com string vazia
                                     return updated;
                                 });
                             }}
                         >
-                            {generateOptions1().map(number => (
+                            {generateOptions().map(number => (
                                 <option key={number} value={number}>{number}</option>
                             ))}
                         </select>
                     </div>
 
+                    {/* Renderizando campos de camas adicionais com base no número selecionado */}
+                    {bedroom.NumOfAditionalBeds > 0 && (
+                        <div>
+                            {Array.from({ length: bedroom.NumOfAditionalBeds }).map((_, bedIndex) => (
+                                <div key={bedIndex}>
+                                    <label htmlFor={`AdditionalBed${index}_${bedIndex}`}>Additional Bed {bedIndex + 1}: </label>
+                                    <select
+                                        id={`AdditionalBed${index}_${bedIndex}`}
+                                        {...register(`Bedrooms.${index}.AdditionalBeds.${bedIndex}`, { required: "Select a Bed Type" })} // registro único para cada cama adicional
+                                        onChange={(e) => {
+                                            setBedrooms(prev => {
+                                                const updated: Bedroom[] = [...prev];
+                                                updated[index].AdditionalBeds[bedIndex] = e.target.value; // Atualiza a cama específica
+                                                return updated;
+                                            });
+                                        }}
+                                    >
+                                        <option value="">Select a bed type</option>
+                                        <option value="California King">California King</option>
+                                        <option value="Extra Large King">Extra Large King</option>
+                                        <option value="King">King</option>
+                                        <option value="Queen">Queen</option>
+                                        <option value="Double">Double</option>
+                                        <option value="Twin">Twin</option>
+                                        <option value="Skinny Twin">Skinny Twin</option>
+                                        <option value="Trundle">Trundle</option>
+                                        <option value="Bunk">Bunk</option>
+                                        <option value="Sofa Bed">Sofa Bed</option>
+                                    </select>
+                                    <p className='error'>{errors.Bedrooms?.[index]?.AdditionalBeds?.[bedIndex]?.message}</p>
+                                </div>
+                            ))}
+                        </div>
+                    )}
                     <div>
                         <label htmlFor={`BeddingAndLinens${index}`}><strong>Bedding and linens: </strong></label>
                         <div>
@@ -162,13 +207,13 @@ export const Tab8: React.FC<Tab8Props> = ({ register, errors }) => {
                                 {...register(`Bedrooms.${index}.BeddingAndLinens.QualityOfLinens`)}
                                 onChange={(e) => {
                                     setBedrooms(prev => {
-                                        const updated = [...prev];
+                                        const updated: Bedroom[] = [...prev];
                                         updated[index].BeddingAndLinens.QualityOfLinens = Number(e.target.value);
                                         return updated;
                                     });
                                 }}
                             >
-                                {generateOptions2().map(number => (
+                                {generateOptions().map(number => (
                                     <option key={number} value={number}>{number}</option>
                                 ))}
                             </select>
@@ -180,13 +225,13 @@ export const Tab8: React.FC<Tab8Props> = ({ register, errors }) => {
                                 {...register(`Bedrooms.${index}.BeddingAndLinens.QualityOfBedding`)}
                                 onChange={(e) => {
                                     setBedrooms(prev => {
-                                        const updated = [...prev];
+                                        const updated: Bedroom[] = [...prev];
                                         updated[index].BeddingAndLinens.QualityOfBedding = Number(e.target.value);
                                         return updated;
                                     });
                                 }}
                             >
-                                {generateOptions2().map(number => (
+                                {generateOptions().map(number => (
                                     <option key={number} value={number}>{number}</option>
                                 ))}
                             </select>
@@ -198,13 +243,13 @@ export const Tab8: React.FC<Tab8Props> = ({ register, errors }) => {
                                 {...register(`Bedrooms.${index}.BeddingAndLinens.QualityOfPillow`)}
                                 onChange={(e) => {
                                     setBedrooms(prev => {
-                                        const updated = [...prev];
+                                        const updated: Bedroom[] = [...prev];
                                         updated[index].BeddingAndLinens.QualityOfPillow = Number(e.target.value);
                                         return updated;
                                     });
                                 }}
                             >
-                                {generateOptions2().map(number => (
+                                {generateOptions().map(number => (
                                     <option key={number} value={number}>{number}</option>
                                 ))}
                             </select>
@@ -216,13 +261,13 @@ export const Tab8: React.FC<Tab8Props> = ({ register, errors }) => {
                                 {...register(`Bedrooms.${index}.BeddingAndLinens.QualityOfMatress`)}
                                 onChange={(e) => {
                                     setBedrooms(prev => {
-                                        const updated = [...prev];
+                                        const updated: Bedroom[] = [...prev];
                                         updated[index].BeddingAndLinens.QualityOfMatress = Number(e.target.value);
                                         return updated;
                                     });
                                 }}
                             >
-                                {generateOptions2().map(number => (
+                                {generateOptions().map(number => (
                                     <option key={number} value={number}>{number}</option>
                                 ))}
                             </select>
@@ -234,13 +279,13 @@ export const Tab8: React.FC<Tab8Props> = ({ register, errors }) => {
                                 {...register(`Bedrooms.${index}.BeddingAndLinens.QualityOfTowels`)}
                                 onChange={(e) => {
                                     setBedrooms(prev => {
-                                        const updated = [...prev];
+                                        const updated: Bedroom[] = [...prev];
                                         updated[index].BeddingAndLinens.QualityOfTowels = Number(e.target.value);
                                         return updated;
                                     });
                                 }}
                             >
-                                {generateOptions2().map(number => (
+                                {generateOptions().map(number => (
                                     <option key={number} value={number}>{number}</option>
                                 ))}
                             </select>
@@ -332,7 +377,7 @@ export const Tab8: React.FC<Tab8Props> = ({ register, errors }) => {
                             {...register(`Bedrooms.${index}.AdditionalNotesBedrooms`)}
                             onChange={(e) => {
                                 setBedrooms(prev => {
-                                    const updated = [...prev];
+                                    const updated: Bedroom[] = [...prev];
                                     updated[index].AdditionalNotesBedrooms = e.target.value;
                                     return updated;
                                 });
@@ -347,21 +392,17 @@ export const Tab8: React.FC<Tab8Props> = ({ register, errors }) => {
                             {...register(`Bedrooms.${index}.NotesToOwnerBedrooms`)}
                             onChange={(e) => {
                                 setBedrooms(prev => {
-                                    const updated = [...prev];
+                                    const updated: Bedroom[] = [...prev];
                                     updated[index].NotesToOwnerBedrooms = e.target.value;
                                     return updated;
                                 });
                             }}
                         />
                     </div>
-
                 </div>
             ))}
             <button type="button" onClick={addBedroom}>Add Bedroom</button>
-
-            <button type="button" onClick={() => removeLastBedroom()}>
-                Remove Bedroom
-            </button>
+            <button type="button" onClick={removeLastBedroom}>Remove Bedroom</button>
         </div>
     );
 };
