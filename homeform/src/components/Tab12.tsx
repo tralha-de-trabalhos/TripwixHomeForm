@@ -9,12 +9,34 @@ interface Tab12Props {
 
 export const Tab12: React.FC<Tab12Props> = ({ register, errors }) => {
 
-    const generateOptions = () => {
-        return Array.from({ length: 101 }, (_, index) => index)
-    }
+    const experiencesOptions = [
+        'Golf', 'Beach', 'Gastronomy', 'Adult Beverages', 'Spa', 'Photography',
+        'Equestrian Activities', 'Zip Lining', 'Underwater Exploration', 'ATV\'s', 'Land Adventures',
+        'Wave/Wind Sports', 'Sightseeing', 'Sailing + Boating', 'Jet Skis + Water Ski Water Jets',
+        'Marine Life Adventures', 'Fishing', 'Shopping', 'Shot', 'Charitable Tourism', 'Race Car Driving',
+        'Hunting', 'Live Events', 'Skiing', 'Museums', 'Nightlife', 'Historical Monuments',
+        'Festivals', 'Literature Events', 'Dance', 'Language', 'Viva España', 'Caving',
+        'Hot Air Balooning', 'Crafting', 'Bird Watching + Wildlife Watching'
+    ];
 
     return (
         <div>
+            <div id='title'>Only necessary for NEW destinations or communities.</div>
+            <div className="amenities-grid">
+                <label>Experiences: </label>
+                {experiencesOptions.map((experience, index) => (
+                    <div key={index} className="amenity-item"   >
+                        <input
+                            type="checkbox"
+                            id={`Experiences-${index}`}
+                            value={experience}
+                            {...register("Experiences")}
+                        />
+                        <label htmlFor={`Experiences-${index}`}>{experience}</label>
+                    </div>
+
+                ))}
+            </div>
         </div>
     )
 }
