@@ -165,7 +165,9 @@ function FillExample() {
           <Tab eventKey="tab13" title="Validation">
             <Tab13 register={register} errors={errors} />
             <Button variant="secondary" onClick={handlePreviousTab}>Previous Page</Button>
-            <button type="submit">Submit All</button>
+            <div>
+              <button type="submit">Submit All</button>
+            </div>
           </Tab>
 
         </Tabs>
