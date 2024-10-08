@@ -46,14 +46,6 @@ export const Tab8: React.FC<Tab8Props> = ({ register, errors }) => {
         });
     };
 
-    const updateAdditionalBeds = (index: number, numberOfBeds: number) => {
-        setBedrooms(prev => {
-            const updated: Bedroom[] = [...prev]; // Especifica o tipo de `updated`
-            updated[index].AdditionalBeds = new Array(numberOfBeds).fill(""); // Inicializa o array com string vazia
-            return updated;
-        });
-    };
-
     const generateOptions = () => Array.from({ length: 6 }, (_, index) => index); // Opções de 0 a 5
 
     const amenitiesOptions = [

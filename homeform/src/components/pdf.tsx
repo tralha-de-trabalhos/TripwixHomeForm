@@ -50,6 +50,8 @@ const MyDocument = ({ formValues }: { formValues: FormValues }) => {
     // Verifique se 'Channel Partner Listed Values' é um array e, se não for, usa um array vazio
     const channelPartnerListedValues = Array.isArray(formValues.ChannelPartnerListed) ? formValues.ChannelPartnerListed : [];
     const bedrooms = Array.isArray(formValues.Bedrooms) ? formValues.Bedrooms : [];
+    // Verifique se 'Experiences' é um array e, se não for, usa um array vazio
+    const experiencesValues = Array.isArray(formValues.Experiences) ? formValues.Experiences : [];
 
     return (
         <Document>
@@ -245,6 +247,7 @@ const MyDocument = ({ formValues }: { formValues: FormValues }) => {
 
                     {/* Tab12 - Experiences */}
                     <Text style={styles.tab}>Experiences</Text>
+                    <Text style={styles.value}>{experiencesValues.join(', ') || ''}</Text>
 
 
                     {/* Tab13 - Validation */}
