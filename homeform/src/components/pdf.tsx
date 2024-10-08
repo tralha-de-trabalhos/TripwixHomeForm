@@ -47,11 +47,28 @@ const MyDocument = ({ formValues }: { formValues: FormValues }) => {
 
     // Verifique se 'Security' é um array e, se não for, usa um array vazio
     const securityValues = Array.isArray(formValues.Security) ? formValues.Security : [];
+
     // Verifique se 'Channel Partner Listed Values' é um array e, se não for, usa um array vazio
     const channelPartnerListedValues = Array.isArray(formValues.ChannelPartnerListed) ? formValues.ChannelPartnerListed : [];
     const bedrooms = Array.isArray(formValues.Bedrooms) ? formValues.Bedrooms : [];
+
     // Verifique se 'Experiences' é um array e, se não for, usa um array vazio
     const experiencesValues = Array.isArray(formValues.Experiences) ? formValues.Experiences : [];
+
+    // Verifique se 'Sports' é um array e, se não for, usa um array vazio
+    const sportsActiveValues = Array.isArray(formValues.Active) ? formValues.Active : [];
+    const sportsGolfValues = Array.isArray(formValues.Golf) ? formValues.Golf : [];
+    const sportsHikingBikingValues = Array.isArray(formValues.HikingBiking) ? formValues.HikingBiking : [];
+    const sportsWaterSportsValues = Array.isArray(formValues.WaterSports) ? formValues.WaterSports : [];
+    const sportsWinterActivitiesValues = Array.isArray(formValues.WinterActivities) ? formValues.WinterActivities : [];
+
+    // Verifique se 'Attractions' é um array e, se não for, usa um array vazio
+    const attactionsCulturalValues = Array.isArray(formValues.Cultural) ? formValues.Cultural : [];
+    const attactionsLeisureValues = Array.isArray(formValues.Leisure) ? formValues.Leisure : [];
+
+    // Verifique se 'Amenities' é um array e, se não for, usa um array vazio
+    const amenitieLocationValues = Array.isArray(formValues.Location) ? formValues.Location : [];
+    const amenitiesPopularAmenitiesValues = Array.isArray(formValues.PopularAmenities) ? formValues.PopularAmenities : [];
 
     return (
         <Document>
@@ -147,10 +164,10 @@ const MyDocument = ({ formValues }: { formValues: FormValues }) => {
                     <Text style={styles.label}>Channel Partnes Where is Listed:</Text>
                     <Text style={styles.value}>{channelPartnerListedValues.join(', ') || ''}</Text>
 
-                    <Text style={styles.label}>Places where the house is already marketed:</Text>
+                    <Text style={styles.label}>Places Where the House is Already Marketed:</Text>
                     <Text style={styles.value}>{formValues.PlacesWhereHouseMarketed}</Text>
 
-                    <Text style={styles.label}>Website internet address (when exists):</Text>
+                    <Text style={styles.label}>Website Internet Address (When Exists):</Text>
                     <Text style={styles.value}>{formValues.Website}</Text>
 
                     <Text style={styles.label}>Expected Rates to Owner (Without TW Commission):</Text>
@@ -158,18 +175,125 @@ const MyDocument = ({ formValues }: { formValues: FormValues }) => {
 
                     {/* Tab4 - Property Overview */}
                     <Text style={styles.tab}>Property Overview</Text>
+                    <Text style={styles.label}>Theme:</Text>
+
+                    <Text style={styles.label}>Minimum Age of Guest:</Text>
+
+                    <Text style={styles.label}>Any memberships:</Text>
+
+                    <Text style={styles.label}>Suitability:</Text>
+
+                    <Text style={styles.label}>Location / Views	:</Text>
+
+                    <Text style={styles.label}>Design / Layout:</Text>
+
+                    <Text style={styles.label}>Quality Furnishings:</Text>
+
+                    <Text style={styles.label}>Cleanliness:</Text>
+
+                    <Text style={styles.label}>Facilities:</Text>
+
+                    <Text style={styles.label}>Overall Rating:</Text>
+
+                    <Text style={styles.label}>Minimum Age of Guest:</Text>
+
+                    <Text style={styles.label}>Minutes to / Name of Airport:</Text>
+
+                    <Text style={styles.label}>Minutes to / Name of Nearest Attraction:</Text>
+
+                    <Text style={styles.label}>Minutes to/ Name of Nearest Village:</Text>
+
+                    <Text style={styles.label}>Explain any Rating Below 3 Stars:</Text>
+
+                    <Text style={styles.label}>Know Before You Go:</Text>
+
 
 
                     {/* Tab5 - Services & Features */}
                     <Text style={styles.tab}>Services & Features</Text>
+                    <Text style={styles.label}>Meals:</Text>
+
+                    <Text style={styles.label}>Breakfast:</Text>
+
+                    <Text style={styles.label}>Lunch:</Text>
+
+                    <Text style={styles.label}>Dinner:</Text>
+
+                    <Text style={styles.label}>Breakfast Service Included:</Text>
+
+                    <Text style={styles.label}>Snack Service Included:</Text>
+
+                    <Text style={styles.label}>Upon arrival:</Text>
+
+                    <Text style={styles.label}>House cleaning:</Text>
+
+                    <Text style={styles.label}>Cleaning Frequency:</Text>
+
+                    <Text style={styles.label}>Changes of Sheets and Linens Frquency:</Text>
+
+                    <Text style={styles.label}>Child Facilities:</Text>
+
+                    <Text style={styles.label}>Services Available:</Text>
+
+                    <Text style={styles.label}>Services Included:</Text>
+
+                    <Text style={styles.label}>Car:</Text>
+
+                    <Text style={styles.label}>Any Additional Costs:</Text>
+
+                    <Text style={styles.label}>Local Services & Businesses:</Text>
+
+                    <Text style={styles.label}>Safety Features:</Text>
+
+                    <Text style={styles.label}>Accessibilty Features:</Text>
+
+
 
 
                     {/* Tab6 - Interiror */}
                     <Text style={styles.tab}>Interiror</Text>
+                    <Text style={styles.label}>Kitchen & Dining:</Text>
+
+                    <Text style={styles.label}>Entertainment:</Text>
+
+                    <Text style={styles.label}>Heating / Cooling:</Text>
+
+                    <Text style={styles.label}>Indoor Living Area Seats Number:</Text>
+
+                    <Text style={styles.label}>Indoor Dinning Area Seats Number:</Text>
+
+                    <Text style={styles.label}>Additional Notes:</Text>
+
+                    <Text style={styles.label}>Notes to Owner (Internal use Only):</Text>
+
+                    <Text style={styles.label}>Special Features:</Text>
+
 
 
                     {/* Tab7 - Exteriror */}
                     <Text style={styles.tab}>Exteriror</Text>
+                    <Text style={styles.label}>Outdoor Features:</Text>
+
+                    <Text style={styles.label}>Pool & Spa Facilities:</Text>
+
+                    <Text style={styles.label}>Exterior Living Seats Number:</Text>
+
+                    <Text style={styles.label}>Exterior Dining Seats Number:</Text>
+
+                    <Text style={styles.label}>Number of Patio Loungers:</Text>
+
+                    <Text style={styles.label}>Pool Size:</Text>
+
+                    <Text style={styles.label}>Jacuzzi Size:</Text>
+
+                    <Text style={styles.label}>Garden/Grounds:</Text>
+
+                    <Text style={styles.label}>Notes:</Text>
+
+                    <Text style={styles.label}>Notes to Owner (Internal use Only):</Text>
+
+                    <Text style={styles.label}>Special Features:</Text>
+
 
 
                     {/* Tab8 - Bedrooms */}
@@ -235,18 +359,37 @@ const MyDocument = ({ formValues }: { formValues: FormValues }) => {
 
                     {/* Tab9 - Amenities */}
                     <Text style={styles.tab}>Amenities</Text>
+                    <Text style={styles.label}>Location:</Text>
+                    <Text style={styles.value}>{attactionsCulturalValues.join(', ') || ''}</Text>
+                    <Text style={styles.label}>Popular Amenities:</Text>
+                    <Text style={styles.value}>{attactionsLeisureValues.join(', ') || ''}</Text>
 
 
                     {/* Tab10 - Attractions */}
                     <Text style={styles.tab}>Attractions</Text>
+                    <Text style={styles.label}>Cultural:</Text>
+                    <Text style={styles.value}>{amenitieLocationValues.join(', ') || ''}</Text>
+                    <Text style={styles.label}>Leisure:</Text>
+                    <Text style={styles.value}>{amenitiesPopularAmenitiesValues.join(', ') || ''}</Text>
 
 
                     {/* Tab11 - Sports */}
                     <Text style={styles.tab}>Sports</Text>
+                    <Text style={styles.label}>Active:</Text>
+                    <Text style={styles.value}>{sportsActiveValues.join(', ') || ''}</Text>
+                    <Text style={styles.label}>Golf:</Text>
+                    <Text style={styles.value}>{sportsGolfValues.join(', ') || ''}</Text>
+                    <Text style={styles.label}>Hiking and Biking:</Text>
+                    <Text style={styles.value}>{sportsHikingBikingValues.join(', ') || ''}</Text>
+                    <Text style={styles.label}>Water Sports:</Text>
+                    <Text style={styles.value}>{sportsWaterSportsValues.join(', ') || ''}</Text>
+                    <Text style={styles.label}>Winter Activities:</Text>
+                    <Text style={styles.value}>{sportsWinterActivitiesValues.join(', ') || ''}</Text>
 
 
                     {/* Tab12 - Experiences */}
                     <Text style={styles.tab}>Experiences</Text>
+                    <Text style={styles.label}>Experiences:</Text>
                     <Text style={styles.value}>{experiencesValues.join(', ') || ''}</Text>
 
 

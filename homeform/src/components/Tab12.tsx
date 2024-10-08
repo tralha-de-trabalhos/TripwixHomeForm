@@ -23,18 +23,17 @@ export const Tab12: React.FC<Tab12Props> = ({ register, errors }) => {
         <div>
             <div id='title'>Only necessary for NEW destinations or communities.</div>
             <div className="amenities-grid">
-                <label>Experiences: </label>
-                {experiencesOptions.map((experience, index) => (
+                <label><strong>Experiences: </strong></label>
+                {experiencesOptions.map((option, index) => (
                     <div key={index} className="amenity-item"   >
                         <input
                             type="checkbox"
                             id={`Experiences-${index}`}
-                            value={experience}
+                            value={option}
                             {...register("Experiences")}
                         />
-                        <label htmlFor={`Experiences-${index}`}>{experience}</label>
+                        <label htmlFor={`Experiences-${index}`}>{option}</label>
                     </div>
-
                 ))}
             </div>
         </div>

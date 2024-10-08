@@ -93,7 +93,7 @@ export const Tab1: React.FC<Tab1Props> = ({ register, errors }) => {
             <input type="NumOfStaff" id="NumOfStaff" {...register("NumOfStaff", { required: { value: true, message: 'Numero de pessoas do Satff necessário' } })} />
             <p className='error'>{errors.NumOfStaff?.message}</p>
 
-            <label>Security: </label>
+            <label><strong>Security: </strong></label>
             <div>
                 <input
                     type="checkbox"

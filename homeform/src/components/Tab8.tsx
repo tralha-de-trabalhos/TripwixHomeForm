@@ -301,7 +301,7 @@ export const Tab8: React.FC<Tab8Props> = ({ register, errors }) => {
                     </div>
 
                     <div className="amenities-grid">
-                        <label>Bedroom Amenities: </label>
+                        <label><strong>Bedroom Amenities: </strong></label>
                         {amenitiesOptions.map(amenity => (
                             <div key={amenity} className="amenity-item">
                                 <input
@@ -332,7 +332,7 @@ export const Tab8: React.FC<Tab8Props> = ({ register, errors }) => {
                     </div>
 
                     <div className="amenities-grid">
-                        <label>Bathroom: </label>
+                        <label><strong>Bathroom: </strong></label>
                         {bathroomOptions.map(bathroom => (
                             <div key={bathroom} className="amenity-item">
                                 <input
