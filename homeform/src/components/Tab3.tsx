@@ -11,7 +11,7 @@ export const Tab3: React.FC<Tab3Props> = ({ register, errors }) => {
 
     return (
         <div>
-            <label>Channel Partners Where is Listed: </label>
+            <label><strong>Channel Partners Where is Listed: </strong></label>
             <div>
                 <input
                     type="checkbox"
