@@ -55,8 +55,13 @@ const MyDocument = ({ formValues }: { formValues: FormValues }) => {
     // Verifique se 'Services & Features ' é um array e, se não for, usa um array vazio
     const localServicesBusinessesOptions = Array.isArray(formValues.LocalServicesBusinesses) ? formValues.LocalServicesBusinesses : [];
     const safetyFeaturesOptions = Array.isArray(formValues.SafetyFeatures) ? formValues.SafetyFeatures : [];
-    const accessibiltyFeaturesOptions = Array.isArray(formValues.AccessibiltyFeatures) ? formValues.AccessibiltyFeatures : [];
 
+    const accessibilityFeaturesOptions = Array.isArray(formValues.AccessibilityFeatures)
+        ? formValues.AccessibilityFeatures
+        : [];
+    if (formValues.OtherAccessibilityFeature) {
+        accessibilityFeaturesOptions.push(formValues.OtherAccessibilityFeature);
+    }
     // Verifique se 'Interior' é um array e, se não for, usa um array vazio
     const kitchenDiningOptions = Array.isArray(formValues.KitchenDining) ? formValues.KitchenDining : [];
     const entertainmentDiningOptions = Array.isArray(formValues.Entertainment) ? formValues.Entertainment : [];
@@ -198,37 +203,45 @@ const MyDocument = ({ formValues }: { formValues: FormValues }) => {
                     <Text style={styles.tab}>Property Overview</Text>
 
                     <Text style={styles.label}>Theme:</Text>
+                    <Text style={styles.value}>{themeOptions.join(', ') || ''}</Text>
 
                     <Text style={styles.label}>Minimum Age of Guest:</Text>
+                    <Text style={styles.value}>{formValues.MinimumAgeOfGuest}</Text>
 
                     <Text style={styles.label}>Any memberships:</Text>
+                    <Text style={styles.value}>{formValues.Memberships}</Text>
 
                     <Text style={styles.label}>Suitability:</Text>
+                    <Text style={styles.value}>{suitabilityOptions.join(', ') || ''}</Text>
 
+                    <Text style={styles.label}>Property rating:</Text>
                     <Text style={styles.label}>Location / Views	:</Text>
-
+                    <Text style={styles.value}>{formValues.PropertyRating.LocationViews}</Text>
                     <Text style={styles.label}>Design / Layout:</Text>
-
+                    <Text style={styles.value}>{formValues.PropertyRating.DesignLayout}</Text>
                     <Text style={styles.label}>Quality Furnishings:</Text>
-
+                    <Text style={styles.value}>{formValues.PropertyRating.QualityFurnishings}</Text>
                     <Text style={styles.label}>Cleanliness:</Text>
-
+                    <Text style={styles.value}>{formValues.PropertyRating.Cleanliness}</Text>
                     <Text style={styles.label}>Facilities:</Text>
-
+                    <Text style={styles.value}>{formValues.PropertyRating.Facilities}</Text>
                     <Text style={styles.label}>Overall Rating:</Text>
-
-                    <Text style={styles.label}>Minimum Age of Guest:</Text>
+                    <Text style={styles.value}>{formValues.PropertyRating.OverallRating}</Text>
 
                     <Text style={styles.label}>Minutes to / Name of Airport:</Text>
+                    <Text style={styles.value}>{formValues.MinutesNameOfAirport}</Text>
 
                     <Text style={styles.label}>Minutes to / Name of Nearest Attraction:</Text>
+                    <Text style={styles.value}>{formValues.MinutesNameOfAttaction}</Text>
 
                     <Text style={styles.label}>Minutes to/ Name of Nearest Village:</Text>
+                    <Text style={styles.value}>{formValues.MinutesNameOfVillage}</Text>
 
                     <Text style={styles.label}>Explain any Rating Below 3 Stars:</Text>
+                    <Text style={styles.value}>{formValues.ExplainRatingBelow3}</Text>
 
                     <Text style={styles.label}>Know Before You Go:</Text>
-
+                    <Text style={styles.value}>{formValues.KnowBeforeGo}</Text>
 
 
                     {/* Tab5 - Services & Features */}
@@ -265,11 +278,13 @@ const MyDocument = ({ formValues }: { formValues: FormValues }) => {
                     <Text style={styles.label}>Any Additional Costs:</Text>
 
                     <Text style={styles.label}>Local Services & Businesses:</Text>
+                    <Text style={styles.value}>{localServicesBusinessesOptions.join(', ') || ''}</Text>
 
                     <Text style={styles.label}>Safety Features:</Text>
+                    <Text style={styles.value}>{safetyFeaturesOptions.join(', ') || ''}</Text>
 
                     <Text style={styles.label}>Accessibilty Features:</Text>
-
+                    <Text style={styles.value}>{accessibilityFeaturesOptions.join(', ') || ''}</Text>
 
 
                     {/* Tab6 - Interiror */}

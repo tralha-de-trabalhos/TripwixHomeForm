@@ -26,8 +26,8 @@ function FillExample() {
   const methods = useForm<FormValues>({
     mode: 'onBlur',
   });
-  const { handleSubmit, register, formState: { errors } } = methods;
 
+  const { handleSubmit, register, control, formState: { errors } } = methods;
   const [activeTab, setActiveTab] = useState('tab1');
   const [isSubmitted, setIsSubmitted] = useState(false);
 
@@ -123,8 +123,7 @@ function FillExample() {
           </Tab>
 
           <Tab eventKey="tab5" title="Services & Features">
-            <Tab5 register={register} errors={errors} />
-            <Button variant="secondary" onClick={handlePreviousTab}>Previous Page</Button>
+            <Tab5 register={register} errors={errors} control={control} />            <Button variant="secondary" onClick={handlePreviousTab}>Previous Page</Button>
             <Button variant="secondary" onClick={handleNextTab}>Next Page</Button>
           </Tab>
 

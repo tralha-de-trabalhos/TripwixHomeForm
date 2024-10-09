@@ -8,6 +8,7 @@ interface Tab7Props {
 }
 
 export const Tab7: React.FC<Tab7Props> = ({ register, errors }) => {
+
     const outdoorFeaturesOptions = [
         'Golf', 'Dock', 'Grill', 'Boat', 'Garden', 'BBQ', 'Bicycle', 'Balcony',
         'Tennis', 'Motorcycle', 'Veranda', 'Petanque', 'Kayak/Canoe', 'Privacy Fence',
@@ -37,6 +38,7 @@ export const Tab7: React.FC<Tab7Props> = ({ register, errors }) => {
                     </div>
                 ))}
             </div>
+
             <div className="amenities-grid">
                 <label><strong>Pool & Spa Facilities: </strong></label>
                 {poolSpaFacilitiesOptions.map((option, index) => (

@@ -99,7 +99,8 @@ export type FormValues = {
     AdditionalCosts: string;
     LocalServicesBusinesses: string[];
     SafetyFeatures: string[];
-    AccessibiltyFeatures: string[];
+    AccessibilityFeatures: string[];
+    OtherAccessibilityFeature: string;
 
     //Tab6 - Interiror
     KitchenDining: string[];
