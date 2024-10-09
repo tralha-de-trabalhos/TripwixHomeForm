@@ -11,7 +11,7 @@ export const Tab7: React.FC<Tab7Props> = ({ register, errors }) => {
     const outdoorFeaturesOptions = [
         'Golf', 'Dock', 'Grill', 'Boat', 'Garden', 'BBQ', 'Bicycle', 'Balcony',
         'Tennis', 'Motorcycle', 'Veranda', 'Petanque', 'Kayak/Canoe', 'Privacy Fence',
-        'Lawn Garden', 'Water Sports Gear', 'Deck/Pati  o Uncovered', 'Tennis Courts', 'Snow Sports Gear',
+        'Lawn Garden', 'Water Sports Gear', 'Deck/Patio Uncovered', 'Tennis Courts', 'Snow Sports Gear',
         'Lanai/Gazebo Covered'
     ];
 
