@@ -190,6 +190,7 @@ export const Tab8: React.FC<Tab8Props> = ({ register, errors }) => {
                             ))}
                         </div>
                     )}
+
                     <div>
                         <label htmlFor={`BeddingAndLinens${index}`}><strong>Bedding and linens: </strong></label>
                         <div>
