@@ -49,23 +49,23 @@ export const Tab8: React.FC<Tab8Props> = ({ register, errors }) => {
     const generateOptions = () => Array.from({ length: 6 }, (_, index) => index); // Opções de 0 a 5
 
     const amenitiesOptions = [
-        'AC', 'Safe', 'TV', 'Heating', 'Robes', 'WI-FI', 'Fireplace',
-        'Slippers', 'Ipod docks', 'Ceiling fans', 'Closet', 'Bluetooth docks',
-        'Alarm clocks', 'Walk-in closet', 'CD/DVD Players', 'Curtains',
-        'Hair dryer', 'In room phone', 'Shutters', 'Make up mirror',
-        'In room fridge', 'Electric shutters', 'Full length mirror',
-        'Coffee/Tea station', 'Electric blinds', 'Access to shared patio',
-        'Living room', 'Blackout blinds', 'Access to private patio'
+        'AC', 'Safe', 'TV', 'Heating', 'Robes', 'Wifi', 'Fireplace',
+        'Slippers', 'Ipod Docks', 'Ceiling Fans', 'Closet', 'Bluetooth Docks',
+        'Alarm Clocks', 'Walk-in Closet', 'CD/DVD Players', 'Curtains',
+        'Hair Dryer', 'In Room Phone', 'Shutters', 'Make Up Mirror',
+        'In Room Fridge', 'Electric Shutters', 'Full Length Mirror',
+        'Coffee/Tea Station', 'Electric Blinds', 'Access to Shared Patio',
+        'Living Room', 'Blackout Blinds', 'Access to Private Patio'
     ];
 
     const bathroomOptions = [
-        'AC', 'Heating', 'Ceiling fans', 'Heated floors', 'Unit Amenities', 'Resort amenities', 'Heated towel rails',
-        'Access to shared patio', 'Access to private patio', 'Shower', 'Jetted Shower', 'Cubicle Shower',
-        'Outdoor Shower', 'Rain head Shower', 'Sink (single)', 'Sink (double)',
+        'AC', 'Heating', 'Ceiling Fans', 'Heated Floors', 'Unit Amenities', 'Resort Amenities', 'Heated Towel Rails',
+        'Access to Shared Patio', 'Access to Private Patio', 'Shower', 'Jetted Shower', 'Cubicle Shower',
+        'Outdoor Shower', 'Rain Head Shower', 'Sink (Single)', 'Sink (Double)',
         'His & Her WC', 'His & Hers Shower', 'Bathtub', 'Jetted Bath',
-        'Cornered Bath', 'Free standing Bath', 'Toilet/Bidet combo',
-        'Bath/Shower combo', 'Bidet', 'Jacuzzi',
-        'Dressing room'
+        'Cornered Bath', 'Free Standing Bath', 'Toilet/Bidet Combo',
+        'Bath/Shower Combo', 'Bidet', 'Jacuzzi',
+        'Dressing Room'
     ];
 
     return (

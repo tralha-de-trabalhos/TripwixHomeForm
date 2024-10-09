@@ -48,12 +48,35 @@ const MyDocument = ({ formValues }: { formValues: FormValues }) => {
     // Verifique se 'Security' é um array e, se não for, usa um array vazio
     const securityValues = Array.isArray(formValues.Security) ? formValues.Security : [];
 
+    // Verifique se 'Property Overview ' é um array e, se não for, usa um array vazio
+    const themeOptions = Array.isArray(formValues.Theme) ? formValues.Theme : [];
+    const suitabilityOptions = Array.isArray(formValues.Suitability) ? formValues.Suitability : [];
+
+    // Verifique se 'Services & Features ' é um array e, se não for, usa um array vazio
+    const localServicesBusinessesOptions = Array.isArray(formValues.LocalServicesBusinesses) ? formValues.LocalServicesBusinesses : [];
+    const safetyFeaturesOptions = Array.isArray(formValues.SafetyFeatures) ? formValues.SafetyFeatures : [];
+    const accessibiltyFeaturesOptions = Array.isArray(formValues.AccessibiltyFeatures) ? formValues.AccessibiltyFeatures : [];
+
+    // Verifique se 'Interior' é um array e, se não for, usa um array vazio
+    const kitchenDiningOptions = Array.isArray(formValues.KitchenDining) ? formValues.KitchenDining : [];
+    const entertainmentDiningOptions = Array.isArray(formValues.Entertainment) ? formValues.Entertainment : [];
+    const heatingCoolingOptions = Array.isArray(formValues.HeatingCooling) ? formValues.HeatingCooling : [];
+
+    // Verifique se 'Exterior' é um array e, se não for, usa um array vazio
+    const outdoorFeaturesOptions = Array.isArray(formValues.OutdoorFeatures) ? formValues.OutdoorFeatures : [];
+    const poolSpaFacilitiesOptions = Array.isArray(formValues.PoolSpaFacilities) ? formValues.PoolSpaFacilities : [];
+
     // Verifique se 'Channel Partner Listed Values' é um array e, se não for, usa um array vazio
     const channelPartnerListedValues = Array.isArray(formValues.ChannelPartnerListed) ? formValues.ChannelPartnerListed : [];
     const bedrooms = Array.isArray(formValues.Bedrooms) ? formValues.Bedrooms : [];
 
-    // Verifique se 'Experiences' é um array e, se não for, usa um array vazio
-    const experiencesValues = Array.isArray(formValues.Experiences) ? formValues.Experiences : [];
+    // Verifique se 'Amenities' é um array e, se não for, usa um array vazio
+    const amenitieLocationValues = Array.isArray(formValues.Location) ? formValues.Location : [];
+    const amenitiesPopularAmenitiesValues = Array.isArray(formValues.PopularAmenities) ? formValues.PopularAmenities : [];
+
+    // Verifique se 'Attractions' é um array e, se não for, usa um array vazio
+    const attactionsCulturalValues = Array.isArray(formValues.Cultural) ? formValues.Cultural : [];
+    const attactionsLeisureValues = Array.isArray(formValues.Leisure) ? formValues.Leisure : [];
 
     // Verifique se 'Sports' é um array e, se não for, usa um array vazio
     const sportsActiveValues = Array.isArray(formValues.Active) ? formValues.Active : [];
@@ -62,13 +85,8 @@ const MyDocument = ({ formValues }: { formValues: FormValues }) => {
     const sportsWaterSportsValues = Array.isArray(formValues.WaterSports) ? formValues.WaterSports : [];
     const sportsWinterActivitiesValues = Array.isArray(formValues.WinterActivities) ? formValues.WinterActivities : [];
 
-    // Verifique se 'Attractions' é um array e, se não for, usa um array vazio
-    const attactionsCulturalValues = Array.isArray(formValues.Cultural) ? formValues.Cultural : [];
-    const attactionsLeisureValues = Array.isArray(formValues.Leisure) ? formValues.Leisure : [];
-
-    // Verifique se 'Amenities' é um array e, se não for, usa um array vazio
-    const amenitieLocationValues = Array.isArray(formValues.Location) ? formValues.Location : [];
-    const amenitiesPopularAmenitiesValues = Array.isArray(formValues.PopularAmenities) ? formValues.PopularAmenities : [];
+    // Verifique se 'Experiences' é um array e, se não for, usa um array vazio
+    const experiencesValues = Array.isArray(formValues.Experiences) ? formValues.Experiences : [];
 
     return (
         <Document>
@@ -149,6 +167,7 @@ const MyDocument = ({ formValues }: { formValues: FormValues }) => {
                     <Text style={styles.label}>General Exterior Description:</Text>
                     <Text style={styles.value}>{formValues.GenExtDescrip}</Text>
 
+
                     {/* Tab2 - Owner Overview */}
                     <Text style={styles.tab}>Owner Overview</Text>
 
@@ -157,6 +176,7 @@ const MyDocument = ({ formValues }: { formValues: FormValues }) => {
 
                     <Text style={styles.label}>Owner Profile:</Text>
                     <Text style={styles.value}>{formValues.OwnerProfile}</Text>
+
 
                     {/* Tab3 - Property Commercial Overview */}
                     <Text style={styles.tab}>Property Commercial Overview</Text>
@@ -173,8 +193,10 @@ const MyDocument = ({ formValues }: { formValues: FormValues }) => {
                     <Text style={styles.label}>Expected Rates to Owner (Without TW Commission):</Text>
                     <Text style={styles.value}>{formValues.ExpectedRates}</Text>
 
+
                     {/* Tab4 - Property Overview */}
                     <Text style={styles.tab}>Property Overview</Text>
+
                     <Text style={styles.label}>Theme:</Text>
 
                     <Text style={styles.label}>Minimum Age of Guest:</Text>
@@ -211,6 +233,7 @@ const MyDocument = ({ formValues }: { formValues: FormValues }) => {
 
                     {/* Tab5 - Services & Features */}
                     <Text style={styles.tab}>Services & Features</Text>
+
                     <Text style={styles.label}>Meals:</Text>
 
                     <Text style={styles.label}>Breakfast:</Text>
@@ -249,55 +272,74 @@ const MyDocument = ({ formValues }: { formValues: FormValues }) => {
 
 
 
-
                     {/* Tab6 - Interiror */}
                     <Text style={styles.tab}>Interiror</Text>
+
                     <Text style={styles.label}>Kitchen & Dining:</Text>
+                    <Text style={styles.value}>{kitchenDiningOptions.join(', ') || ''}</Text>
 
                     <Text style={styles.label}>Entertainment:</Text>
+                    <Text style={styles.value}>{entertainmentDiningOptions.join(', ') || ''}</Text>
 
                     <Text style={styles.label}>Heating / Cooling:</Text>
+                    <Text style={styles.value}>{heatingCoolingOptions.join(', ') || ''}</Text>
 
                     <Text style={styles.label}>Indoor Living Area Seats Number:</Text>
+                    <Text style={styles.value}>{formValues.NumOfIndoorLivingAreaSeats}</Text>
 
                     <Text style={styles.label}>Indoor Dinning Area Seats Number:</Text>
+                    <Text style={styles.value}>{formValues.NumOfIndoorDinningAreaSeats}</Text>
 
                     <Text style={styles.label}>Additional Notes:</Text>
+                    <Text style={styles.value}>{formValues.AdditionalNotesInteriror}</Text>
 
                     <Text style={styles.label}>Notes to Owner (Internal use Only):</Text>
+                    <Text style={styles.value}>{formValues.NotesToOwnerInteriror}</Text>
 
                     <Text style={styles.label}>Special Features:</Text>
-
+                    <Text style={styles.value}>{formValues.SpecialFeaturesInterior}</Text>
 
 
                     {/* Tab7 - Exteriror */}
                     <Text style={styles.tab}>Exteriror</Text>
+
                     <Text style={styles.label}>Outdoor Features:</Text>
+                    <Text style={styles.value}>{outdoorFeaturesOptions.join(', ') || ''}</Text>
 
                     <Text style={styles.label}>Pool & Spa Facilities:</Text>
+                    <Text style={styles.value}>{poolSpaFacilitiesOptions.join(', ') || ''}</Text>
 
                     <Text style={styles.label}>Exterior Living Seats Number:</Text>
+                    <Text style={styles.value}>{formValues.NumOfExteriorLivingSeats}</Text>
 
                     <Text style={styles.label}>Exterior Dining Seats Number:</Text>
+                    <Text style={styles.value}>{formValues.NumOfExteriorDiningSeats}</Text>
 
                     <Text style={styles.label}>Number of Patio Loungers:</Text>
+                    <Text style={styles.value}>{formValues.NumOfPatioLoungers}</Text>
 
                     <Text style={styles.label}>Pool Size:</Text>
+                    <Text style={styles.value}>{formValues.PoolSize}</Text>
 
                     <Text style={styles.label}>Jacuzzi Size:</Text>
+                    <Text style={styles.value}>{formValues.JacuzziSize}</Text>
 
                     <Text style={styles.label}>Garden/Grounds:</Text>
+                    <Text style={styles.value}>{formValues.NumOfGardenGrounds}</Text>
 
                     <Text style={styles.label}>Notes:</Text>
+                    <Text style={styles.value}>{formValues.AdditionalNotesExteriror}</Text>
 
                     <Text style={styles.label}>Notes to Owner (Internal use Only):</Text>
+                    <Text style={styles.value}>{formValues.NotesToOwnerExteriror}</Text>
 
                     <Text style={styles.label}>Special Features:</Text>
-
+                    <Text style={styles.value}>{formValues.SpecialFeaturesExterior}</Text>
 
 
                     {/* Tab8 - Bedrooms */}
                     <Text style={styles.tab}>Bedrooms</Text>
+
                     {bedrooms.length > 0 ? (
 
                         bedrooms.map((bedroom, index) => (
@@ -357,38 +399,49 @@ const MyDocument = ({ formValues }: { formValues: FormValues }) => {
                         <Text style={styles.value}>No rooms were added.</Text>
                     )}
 
+
                     {/* Tab9 - Amenities */}
                     <Text style={styles.tab}>Amenities</Text>
+
                     <Text style={styles.label}>Location:</Text>
                     <Text style={styles.value}>{attactionsCulturalValues.join(', ') || ''}</Text>
+
                     <Text style={styles.label}>Popular Amenities:</Text>
                     <Text style={styles.value}>{attactionsLeisureValues.join(', ') || ''}</Text>
 
 
                     {/* Tab10 - Attractions */}
                     <Text style={styles.tab}>Attractions</Text>
+
                     <Text style={styles.label}>Cultural:</Text>
                     <Text style={styles.value}>{amenitieLocationValues.join(', ') || ''}</Text>
+
                     <Text style={styles.label}>Leisure:</Text>
                     <Text style={styles.value}>{amenitiesPopularAmenitiesValues.join(', ') || ''}</Text>
 
 
                     {/* Tab11 - Sports */}
                     <Text style={styles.tab}>Sports</Text>
+
                     <Text style={styles.label}>Active:</Text>
                     <Text style={styles.value}>{sportsActiveValues.join(', ') || ''}</Text>
+
                     <Text style={styles.label}>Golf:</Text>
                     <Text style={styles.value}>{sportsGolfValues.join(', ') || ''}</Text>
+
                     <Text style={styles.label}>Hiking and Biking:</Text>
                     <Text style={styles.value}>{sportsHikingBikingValues.join(', ') || ''}</Text>
+
                     <Text style={styles.label}>Water Sports:</Text>
                     <Text style={styles.value}>{sportsWaterSportsValues.join(', ') || ''}</Text>
+
                     <Text style={styles.label}>Winter Activities:</Text>
                     <Text style={styles.value}>{sportsWinterActivitiesValues.join(', ') || ''}</Text>
 
 
                     {/* Tab12 - Experiences */}
                     <Text style={styles.tab}>Experiences</Text>
+
                     <Text style={styles.label}>Experiences:</Text>
                     <Text style={styles.value}>{experiencesValues.join(', ') || ''}</Text>
 

@@ -85,11 +85,11 @@ export const Tab3: React.FC<Tab3Props> = ({ register, errors }) => {
                 <label htmlFor="Luxury Retreats">Luxury Retreats</label>
             </div>
 
-            <label htmlFor='PlacesWhereHouseMarketed'>Places where the house is already marketed: </label>
+            <label htmlFor='PlacesWhereHouseMarketed'>Places Where the House is Already Marketed: </label>
             <input type="PlacesWhereHouseMarketed" id="PlacesWhereHouseMarketed" {...register("PlacesWhereHouseMarketed", { required: { value: true, message: 'Places where House is Marketed necessária' } })} />
             <p className='error'>{errors.PlacesWhereHouseMarketed?.message}</p>
 
-            <label htmlFor='Website'>Website internet address (when exists): </label>
+            <label htmlFor='Website'>Website Internet Address (When Exists): </label>
             <input type="Website" id="Website" {...register("Website")} />
 
             <div>

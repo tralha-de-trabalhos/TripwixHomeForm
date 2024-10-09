@@ -98,62 +98,72 @@ function FillExample() {
     <FormProvider {...methods}>
       <form onSubmit={handleSubmit(onSubmit)}>
         <Tabs activeKey={activeTab} onSelect={(k) => setActiveTab(k || '')} id="fill-tab-example" className="mb-3" fill>
+
           <Tab eventKey="tab1" title="House Walkthrough Form">
             <Tab1 register={register} errors={errors} />
             <Button variant="secondary" onClick={handleNextTab}>Next Page</Button>
           </Tab>
+
           <Tab eventKey="tab2" title="Owner Overview">
             <Tab2 register={register} errors={errors} />
             <Button variant="secondary" onClick={handlePreviousTab}>Previous Page</Button>
             <Button variant="secondary" onClick={handleNextTab}>Next Page</Button>
           </Tab>
+
           <Tab eventKey="tab3" title="Property Commercial Overview">
             <Tab3 register={register} errors={errors} />
             <Button variant="secondary" onClick={handlePreviousTab}>Previous Page</Button>
             <Button variant="secondary" onClick={handleNextTab}>Next Page</Button>
           </Tab>
-          {/*
+
           <Tab eventKey="tab4" title="Property Overview">
             <Tab4 register={register} errors={errors} />
             <Button variant="secondary" onClick={handlePreviousTab}>Previous Page</Button>
             <Button variant="secondary" onClick={handleNextTab}>Next Page</Button>
           </Tab>
+
           <Tab eventKey="tab5" title="Services & Features">
             <Tab5 register={register} errors={errors} />
             <Button variant="secondary" onClick={handlePreviousTab}>Previous Page</Button>
             <Button variant="secondary" onClick={handleNextTab}>Next Page</Button>
           </Tab>
+
           <Tab eventKey="tab6" title="Interior">
             <Tab6 register={register} errors={errors} />
             <Button variant="secondary" onClick={handlePreviousTab}>Previous Page</Button>
             <Button variant="secondary" onClick={handleNextTab}>Next Page</Button>
           </Tab>
+
           <Tab eventKey="tab7" title="Exterior">
             <Tab7 register={register} errors={errors} />
             <Button variant="secondary" onClick={handlePreviousTab}>Previous Page</Button>
             <Button variant="secondary" onClick={handleNextTab}>Next Page</Button>
           </Tab>
-                    */}
+
           <Tab eventKey="tab8" title="Bedrooms">
             <Tab8 register={register} errors={errors} />
             <Button variant="secondary" onClick={handlePreviousTab}>Previous Page</Button>
             <Button variant="secondary" onClick={handleNextTab}>Next Page</Button>
           </Tab>
+
           <Tab eventKey="tab9" title="Amenities">
             <Tab9 register={register} errors={errors} />
             <Button variant="secondary" onClick={handlePreviousTab}>Previous Page</Button>
             <Button variant="secondary" onClick={handleNextTab}>Next Page</Button>
           </Tab>
+
           <Tab eventKey="tab10" title="Attractions">
             <Tab10 register={register} errors={errors} />
             <Button variant="secondary" onClick={handlePreviousTab}>Previous Page</Button>
             <Button variant="secondary" onClick={handleNextTab}>Next Page</Button>
           </Tab>
+
           <Tab eventKey="tab11" title="Sports">
             <Tab11 register={register} errors={errors} />
             <Button variant="secondary" onClick={handlePreviousTab}>Previous Page</Button>
             <Button variant="secondary" onClick={handleNextTab}>Next Page</Button>
           </Tab>
+
           <Tab eventKey="tab12" title="Experiences">
             <Tab12 register={register} errors={errors} />
             <Button variant="secondary" onClick={handlePreviousTab}>Previous Page</Button>
