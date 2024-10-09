@@ -13,11 +13,11 @@ export const Tab13: React.FC<Tab13Props> = ({ register, errors }) => {
 
     return (
         <div>
-            <label htmlFor="CuratAmbname">Curator or Amb responsible for this form: </label>
+            <label htmlFor="CuratAmbname">Curator or Amb Responsible for this Form: </label>
             <input type="text" id="CuratAmbname" {...register("CuratAmbname", { required: { value: true, message: 'Curator or Ambassador Name is required' } })} />
             <p className='error'>{errors.CuratAmbname?.message}</p>
 
-            <label htmlFor='InspecDate'>Inspection date: </label>
+            <label htmlFor='InspecDate'>Inspection Date: </label>
             <input type="date" id="InspecDate" {...register("InspecDate", { required: { value: true, message: 'Inspection Date Required' } })} />
             <p className='error'>{errors.InspecDate?.message}</p>
 
