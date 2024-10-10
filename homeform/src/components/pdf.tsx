@@ -53,6 +53,17 @@ const MyDocument = ({ formValues }: { formValues: FormValues }) => {
     const suitabilityOptions = Array.isArray(formValues.Suitability) ? formValues.Suitability : [];
 
     // Verifique se 'Services & Features ' é um array e, se não for, usa um array vazio
+    const mealsOptions = Array.isArray(formValues.Meals) ? formValues.Meals : [];
+    const breakfastOptions = Array.isArray(formValues.Breakfast) ? formValues.Breakfast : [];
+    const lunchOptions = Array.isArray(formValues.Lunch) ? formValues.Lunch : [];
+    const dinnerOptions = Array.isArray(formValues.Dinner) ? formValues.Dinner : [];
+    const upponArrivalOptions = Array.isArray(formValues.UponArrival) ? formValues.UponArrival : [];
+    const houseCleaningOptions = Array.isArray(formValues.HouseCleaning) ? formValues.HouseCleaning : [];
+    const childFacilitiesOptions = Array.isArray(formValues.ChildFacilities) ? formValues.ChildFacilities : [];
+    const servicesAvailableOptions = Array.isArray(formValues.ServicesAvailable) ? formValues.ServicesAvailable : [];
+    const servicesIncludedOptions = Array.isArray(formValues.ServicesIncluded) ? formValues.ServicesIncluded : [];
+    const carOptions = Array.isArray(formValues.Car) ? formValues.Car : [];
+
     const localServicesBusinessesOptions = Array.isArray(formValues.LocalServicesBusinesses) ? formValues.LocalServicesBusinesses : [];
     const safetyFeaturesOptions = Array.isArray(formValues.SafetyFeatures) ? formValues.SafetyFeatures : [];
 
@@ -62,6 +73,7 @@ const MyDocument = ({ formValues }: { formValues: FormValues }) => {
     if (formValues.OtherAccessibilityFeature) {
         accessibilityFeaturesOptions.push(formValues.OtherAccessibilityFeature);
     }
+
     // Verifique se 'Interior' é um array e, se não for, usa um array vazio
     const kitchenDiningOptions = Array.isArray(formValues.KitchenDining) ? formValues.KitchenDining : [];
     const entertainmentDiningOptions = Array.isArray(formValues.Entertainment) ? formValues.Entertainment : [];
@@ -248,34 +260,49 @@ const MyDocument = ({ formValues }: { formValues: FormValues }) => {
                     <Text style={styles.tab}>Services & Features</Text>
 
                     <Text style={styles.label}>Meals:</Text>
+                    <Text style={styles.value}>{mealsOptions.join(', ') || ''}</Text>
 
                     <Text style={styles.label}>Breakfast:</Text>
+                    <Text style={styles.value}>{breakfastOptions.join(', ') || ''}</Text>
 
                     <Text style={styles.label}>Lunch:</Text>
+                    <Text style={styles.value}>{lunchOptions.join(', ') || ''}</Text>
 
                     <Text style={styles.label}>Dinner:</Text>
+                    <Text style={styles.value}>{dinnerOptions.join(', ') || ''}</Text>
 
                     <Text style={styles.label}>Breakfast Service Included:</Text>
+                    <Text style={styles.value}>{formValues.BreakfastServiceIncluded}</Text>
 
                     <Text style={styles.label}>Snack Service Included:</Text>
+                    <Text style={styles.value}>{formValues.SnackServiceIncluded}</Text>
 
                     <Text style={styles.label}>Upon arrival:</Text>
+                    <Text style={styles.value}>{upponArrivalOptions.join(', ') || ''}</Text>
 
                     <Text style={styles.label}>House cleaning:</Text>
+                    <Text style={styles.value}>{houseCleaningOptions.join(', ') || ''}</Text>
 
                     <Text style={styles.label}>Cleaning Frequency:</Text>
+                    <Text style={styles.value}>{formValues.CleaningFrequency}</Text>
 
                     <Text style={styles.label}>Changes of Sheets and Linens Frquency:</Text>
+                    <Text style={styles.value}>{formValues.ChangesOfSheetFrquency}</Text>
 
                     <Text style={styles.label}>Child Facilities:</Text>
+                    <Text style={styles.value}>{childFacilitiesOptions.join(', ') || ''}</Text>
 
                     <Text style={styles.label}>Services Available:</Text>
+                    <Text style={styles.value}>{servicesAvailableOptions.join(', ') || ''}</Text>
 
                     <Text style={styles.label}>Services Included:</Text>
+                    <Text style={styles.value}>{servicesIncludedOptions.join(', ') || ''}</Text>
 
                     <Text style={styles.label}>Car:</Text>
+                    <Text style={styles.value}>{carOptions.join(', ') || ''}</Text>
 
                     <Text style={styles.label}>Any Additional Costs:</Text>
+                    <Text style={styles.value}>{formValues.AdditionalCosts}</Text>
 
                     <Text style={styles.label}>Local Services & Businesses:</Text>
                     <Text style={styles.value}>{localServicesBusinessesOptions.join(', ') || ''}</Text>
