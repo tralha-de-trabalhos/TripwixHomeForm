@@ -25,6 +25,11 @@ const upload = multer({ storage }); // Inicializa o multer com a configuração 
 console.log(process.env.EMAIL_USER);
 console.log(process.env.EMAIL_PASS);
 
+app.get('/', (req, res) => {
+    res.send('Server is running');
+});
+
+
 app.post('/send-email', upload.single('pdf'), async (req, res) => {
     const { to, subject, text } = JSON.parse(req.body.emailData); // Pega os dados do email
     const pdfFilePath = path.join(__dirname, 'uploads', req.file.filename); // Caminho do PDF
