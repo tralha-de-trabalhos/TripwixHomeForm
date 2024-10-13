@@ -123,7 +123,8 @@ function FillExample() {
           </Tab>
 
           <Tab eventKey="tab5" title="Services & Features">
-            <Tab5 register={register} errors={errors} control={control} />            <Button variant="secondary" onClick={handlePreviousTab}>Previous Page</Button>
+            <Tab5 register={register} errors={errors} control={control} />
+            <Button variant="secondary" onClick={handlePreviousTab}>Previous Page</Button>
             <Button variant="secondary" onClick={handleNextTab}>Next Page</Button>
           </Tab>
 
