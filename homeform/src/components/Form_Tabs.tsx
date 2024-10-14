@@ -62,6 +62,9 @@ function FillExample() {
     });
 
     if (response.ok) {
+      alert(`Form Validated, Email sent to ${process.env.REACT_APP_EMAIL_RECEIVER2}`);
+      methods.reset(); // Reseta os campos do formulário
+      setActiveTab('tab1'); // Volta à primeira aba
       console.log('Email enviado com sucesso!');
       setIsSubmitted(true); // Marcar como enviado
     } else {
@@ -226,13 +229,6 @@ function FillExample() {
       setActiveTab(tabOrder[currentIndex - 1]);
     }
   };
-
-  //Alert de Sucesso de Validação do Form e Envio do Email
-  useEffect(() => {
-    if (isSubmitted && activeTab === 'tab13') {
-      alert(`Form Validated, Email Sent to ${process.env.REACT_APP_EMAIL_RECEIVER2}`);
-    }
-  }, [isSubmitted, activeTab]);
 
   return (
     <FormProvider {...methods}>
