@@ -35,7 +35,7 @@ export const Tab10: React.FC<Tab10Props> = ({ register, errors }) => {
                             value={option}
                             {...register("Cultural")}
                         />
-                        <label htmlFor={`Attractions-${index}`}>{option}</label>
+                        <label htmlFor={`Cultural-${index}`}>{option}</label>
                     </div>
                 ))}
             </div>
@@ -49,7 +49,7 @@ export const Tab10: React.FC<Tab10Props> = ({ register, errors }) => {
                             value={option}
                             {...register("Leisure")}
                         />
-                        <label htmlFor={`Attractions-${index}`}>{option}</label>
+                        <label htmlFor={`Leisure-${index}`}>{option}</label>
                     </div>
                 ))}
             </div>

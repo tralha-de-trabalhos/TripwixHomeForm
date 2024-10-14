@@ -52,7 +52,7 @@ export const Tab11: React.FC<Tab11Props> = ({ register, errors }) => {
                             value={option}
                             {...register("Active")}
                         />
-                        <label htmlFor={`Sports-${index}`}>{option}</label>
+                        <label htmlFor={`Active-${index}`}>{option}</label>
                     </div>
 
                 ))}
@@ -67,7 +67,7 @@ export const Tab11: React.FC<Tab11Props> = ({ register, errors }) => {
                             value={option}
                             {...register("Golf")}
                         />
-                        <label htmlFor={`Sports-${index}`}>{option}</label>
+                        <label htmlFor={`Golf-${index}`}>{option}</label>
                     </div>
 
                 ))}
@@ -82,7 +82,7 @@ export const Tab11: React.FC<Tab11Props> = ({ register, errors }) => {
                             value={option}
                             {...register("HikingBiking")}
                         />
-                        <label htmlFor={`Sports-${index}`}>{option}</label>
+                        <label htmlFor={`HikingBiking-${index}`}>{option}</label>
                     </div>
 
                 ))}
@@ -97,7 +97,7 @@ export const Tab11: React.FC<Tab11Props> = ({ register, errors }) => {
                             value={option}
                             {...register("WaterSports")}
                         />
-                        <label htmlFor={`Sports-${index}`}>{option}</label>
+                        <label htmlFor={`WaterSports-${index}`}>{option}</label>
                     </div>
 
                 ))}
@@ -112,7 +112,7 @@ export const Tab11: React.FC<Tab11Props> = ({ register, errors }) => {
                             value={option}
                             {...register("WinterActivities")}
                         />
-                        <label htmlFor={`Sports-${index}`}>{option}</label>
+                        <label htmlFor={`WinterActivities-${index}`}>{option}</label>
                     </div>
 
                 ))}

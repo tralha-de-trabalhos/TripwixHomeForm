@@ -34,7 +34,7 @@ export const Tab7: React.FC<Tab7Props> = ({ register, errors }) => {
                             value={option}
                             {...register("OutdoorFeatures")}
                         />
-                        <label htmlFor={`Exterior-${index}`}>{option}</label>
+                        <label htmlFor={`OutdoorFeatures-${index}`}>{option}</label>
                     </div>
                 ))}
             </div>
@@ -49,7 +49,7 @@ export const Tab7: React.FC<Tab7Props> = ({ register, errors }) => {
                             value={option}
                             {...register("PoolSpaFacilities")}
                         />
-                        <label htmlFor={`Exterior-${index}`}>{option}</label>
+                        <label htmlFor={`PoolSpaFacilities-${index}`}>{option}</label>
                     </div>
                 ))}
             </div>
