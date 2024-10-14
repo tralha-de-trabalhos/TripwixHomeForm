@@ -17,23 +17,23 @@ export const Tab1: React.FC<Tab1Props> = ({ register, errors }) => {
     return (
         <div>
             <label htmlFor="Ambname">Ambassador Name: </label>
-            <input type="text" id="Ambname" {...register("Ambname", { required: { value: true, message: 'Ambassador Name is required' } })} />
+            <input type="text" id="Ambname" {...register("Ambname", { required: { value: false, message: 'Ambassador Name is required' } })} />
             <p className='error'>{errors.Ambname?.message}</p>
 
             <label htmlFor='TWname'>TW Name of Property: </label>
-            <input type="text" id="TWname" {...register("TWname", { required: { value: true, message: 'Name of property required' } })} />
+            <input type="text" id="TWname" {...register("TWname", { required: { value: false, message: 'Name of property required' } })} />
             <p className='error'>{errors.TWname?.message}</p>
 
             <label htmlFor='Coord'>Geo Coordinates (GPS X; GPS Y): </label>
-            <input type="Coord" id="Coord" {...register("Coord", { required: { value: true, message: 'Coordenadas inválidas' } })} />
+            <input type="Coord" id="Coord" {...register("Coord", { required: { value: false, message: 'Coordenadas inválidas' } })} />
             <p className='error'>{errors.Coord?.message}</p>
 
             <label htmlFor='CiirusID'>N/A Ciirus ID: </label>
-            <input type="CiirusID" id="CiirusID" {...register("CiirusID", { required: { value: true, message: 'ID necessário' } })} />
+            <input type="CiirusID" id="CiirusID" {...register("CiirusID", { required: { value: false, message: 'ID necessário' } })} />
             <p className='error'>{errors.CiirusID?.message}</p>
 
             <label htmlFor='RFC'>Property Registration Number / RFC (Spain, Portugal, Mexico): </label>
-            <input type="RFC" id="RFC" {...register("RFC", { required: { value: true, message: 'RFC inválido' } })} />
+            <input type="RFC" id="RFC" {...register("RFC", { required: { value: false, message: 'RFC inválido' } })} />
             <p className='error'>{errors.RFC?.message}</p>
 
             <div>
@@ -73,23 +73,23 @@ export const Tab1: React.FC<Tab1Props> = ({ register, errors }) => {
             </div>
 
             <label htmlFor='PropContName'>Property Contact Name: </label>
-            <input type="PropContName" id="PropContName" {...register("PropContName", { required: { value: true, message: 'Nome do Proprietário Necessário' } })} />
+            <input type="PropContName" id="PropContName" {...register("PropContName", { required: { value: false, message: 'Nome do Proprietário Necessário' } })} />
             <p className='error'>{errors.PropContName?.message}</p>
 
             <label htmlFor='TelNumb'>Telephone Number: </label>
-            <input type="TelNumb" id="TelNumb" {...register("TelNumb", { required: { value: true, message: 'Número de Telefone Necessário' } })} />
+            <input type="TelNumb" id="TelNumb" {...register("TelNumb", { required: { value: false, message: 'Número de Telefone Necessário' } })} />
             <p className='error'>{errors.TelNumb?.message}</p>
 
             <label htmlFor='Email'>Email: </label>
-            <input type="Email" id="Email" {...register("Email", { required: { value: true, message: 'Email é Necessário' }, pattern: { value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i, message: 'Email inválido' } })} />
+            <input type="Email" id="Email" {...register("Email", { required: { value: false, message: 'Email é Necessário' }, pattern: { value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i, message: 'Email inválido' } })} />
             <p className='error'>{errors.Email?.message}</p>
 
             <label htmlFor='Adress'>Adress: </label>
-            <input type="Adress" id="Adress" {...register("Adress", { required: { value: true, message: 'Morada Necessária' } })} />
+            <input type="Adress" id="Adress" {...register("Adress", { required: { value: false, message: 'Morada Necessária' } })} />
             <p className='error'>{errors.Adress?.message}</p>
 
             <label htmlFor='NumOfStaff'>Number of Staff: </label>
-            <input type="NumOfStaff" id="NumOfStaff" {...register("NumOfStaff", { required: { value: true, message: 'Numero de pessoas do Satff necessário' } })} />
+            <input type="NumOfStaff" id="NumOfStaff" {...register("NumOfStaff", { required: { value: false, message: 'Numero de pessoas do Satff necessário' } })} />
             <p className='error'>{errors.NumOfStaff?.message}</p>
 
             <label><strong>Security: </strong></label>
@@ -131,15 +131,15 @@ export const Tab1: React.FC<Tab1Props> = ({ register, errors }) => {
             </div>
 
             <label htmlFor='SizeOfProp'>Size of Property: </label>
-            <input type="SizeOfProp" id="SizeOfProp" {...register("SizeOfProp", { required: { value: true, message: 'Tamanho da Propriedade necessária' } })} />
+            <input type="SizeOfProp" id="SizeOfProp" {...register("SizeOfProp", { required: { value: false, message: 'Tamanho da Propriedade necessária' } })} />
             <p className='error'>{errors.SizeOfProp?.message}</p>
 
             <label htmlFor='SizeOfLot'>Size of Lot: </label>
-            <input type="SizeOfLot" id="SizeOfLot" {...register("SizeOfLot", { required: { value: true, message: 'Tamanho do Lot necessário' } })} />
+            <input type="SizeOfLot" id="SizeOfLot" {...register("SizeOfLot", { required: { value: false, message: 'Tamanho do Lot necessário' } })} />
             <p className='error'>{errors.SizeOfLot?.message}</p>
 
             <label htmlFor='YearBuilt'>Year Built: </label>
-            <input type="YearBuilt" id="YearBuilt" {...register("YearBuilt", { required: { value: true, message: 'Ano de Construção necessário' } })} />
+            <input type="YearBuilt" id="YearBuilt" {...register("YearBuilt", { required: { value: false, message: 'Ano de Construção necessário' } })} />
             <p className='error'>{errors.YearBuilt?.message}</p>
 
             <div>
@@ -161,7 +161,7 @@ export const Tab1: React.FC<Tab1Props> = ({ register, errors }) => {
             </div>
 
             <label htmlFor="Category">Category: </label>
-            <select id="Category" {...register("Category", { required: "Category is required" })}>
+            <select id="Category" {...register("Category", { required: { value: false, message: "Category is required" } })}>
                 <option value="">Select a Category</option>
                 <option value="Ultra Deluxe">Ultra Deluxe</option>
                 <option value="Deluxe">Deluxe</option>
@@ -174,7 +174,7 @@ export const Tab1: React.FC<Tab1Props> = ({ register, errors }) => {
             <p className='error'>{errors.Category?.message}</p>
 
             <label htmlFor="TypeOfProp">Type of Property: </label>
-            <select id="TypeOfProp" {...register("TypeOfProp", { required: "Type of Property is required" })}>
+            <select id="TypeOfProp" {...register("TypeOfProp", { required: { value: false, message: "Type of Property is required" } })}>
                 <option value="">Select a Type of Property</option>
                 <option value="Apartment">Apartment</option>
                 <option value="Barn">Barn</option>
@@ -217,7 +217,7 @@ export const Tab1: React.FC<Tab1Props> = ({ register, errors }) => {
 
             <div>
                 <label htmlFor='GenExtDescrip'>General Exterior Description: </label>
-                <textarea id="GenExtDescrip" {...register("GenExtDescrip", { required: { value: true, message: 'Descrição Geral do Exterior não pode estar vazia' } })} />
+                <textarea id="GenExtDescrip" {...register("GenExtDescrip", { required: { value: false, message: 'Descrição Geral do Exterior não pode estar vazia' } })} />
                 <p className='error'>{errors.GenExtDescrip?.message}</p>
             </div>
         </div>

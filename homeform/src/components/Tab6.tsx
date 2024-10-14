@@ -79,11 +79,11 @@ export const Tab6: React.FC<Tab6Props> = ({ register, errors }) => {
 
             <div>
                 <label htmlFor="NumOfIndoorLivingAreaSeats">Indoor Living Area Seats Number: </label>
-                <input type="text" id="NumOfIndoorLivingAreaSeats" {...register("NumOfIndoorLivingAreaSeats", { required: { value: true, message: 'Indoor Living Area Seats Number is required' } })} />
+                <input type="text" id="NumOfIndoorLivingAreaSeats" {...register("NumOfIndoorLivingAreaSeats", { required: { value: false, message: 'Indoor Living Area Seats Number is required' } })} />
                 <p className='error'>{errors.NumOfIndoorLivingAreaSeats?.message}</p>
 
                 <label htmlFor="NumOfIndoorDinningAreaSeats">Indoor Dinning Area Seats Number: </label>
-                <input type="text" id="NumOfIndoorDinningAreaSeats" {...register("NumOfIndoorDinningAreaSeats", { required: { value: true, message: 'Indoor Dinning Area Seats Number is required' } })} />
+                <input type="text" id="NumOfIndoorDinningAreaSeats" {...register("NumOfIndoorDinningAreaSeats", { required: { value: false, message: 'Indoor Dinning Area Seats Number is required' } })} />
                 <p className='error'>{errors.NumOfIndoorDinningAreaSeats?.message}</p>
             </div>
 

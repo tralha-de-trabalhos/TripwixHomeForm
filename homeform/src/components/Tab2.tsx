@@ -13,7 +13,7 @@ export const Tab2: React.FC<Tab2Props> = ({ register, errors }) => {
         <div>
 
             <label htmlFor="RelationshipToProp">Relationship to Property: </label>
-            <select id="RelationshipToProp" {...register("RelationshipToProp", { required: "Relationship to Property is required" })}>
+            <select id="RelationshipToProp" {...register("RelationshipToProp", { required: { value: false, message: "Relationship to Property is required" } })}>
                 <option value="">Select an option</option>
                 <option value="Owner">Owner</option>
                 <option value="Property Manager">Property Manager</option>
@@ -24,7 +24,7 @@ export const Tab2: React.FC<Tab2Props> = ({ register, errors }) => {
             <p className='error'>{errors.RelationshipToProp?.message}</p>
 
             <label htmlFor="OwnerProfile">Owner's Profile: </label>
-            <select id="OwnerProfile" {...register("OwnerProfile", { required: "Owner's Profile is required" })}>
+            <select id="OwnerProfile" {...register("OwnerProfile", { required: { value: false, message: "Owner's Profile is required" } })}>
                 <option value="">Select an Owner's Profile</option>
                 <option value="#1 Super flexible, answer quickly and wants as many rentels as possible">#1 Super flexible, answer quickly and wants as many rentels as possible</option>
                 <option value="#2 Are opened to ideas, take longer to answer but   have relatively opended minded">#2 Are opened to ideas, take longer to answer but   have relatively opended minded</option>

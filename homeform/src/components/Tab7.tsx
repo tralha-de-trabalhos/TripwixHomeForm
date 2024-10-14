@@ -56,27 +56,27 @@ export const Tab7: React.FC<Tab7Props> = ({ register, errors }) => {
 
             <div>
                 <label htmlFor="NumOfExteriorLivingSeats">Exterior Living Seats Number: </label>
-                <input type="text" id="NumOfExteriorLivingSeats" {...register("NumOfExteriorLivingSeats", { required: { value: true, message: 'Exterior Living Seats Number is required' } })} />
+                <input type="text" id="NumOfExteriorLivingSeats" {...register("NumOfExteriorLivingSeats", { required: { value: false, message: 'Exterior Living Seats Number is required' } })} />
                 <p className='error'>{errors.NumOfExteriorLivingSeats?.message}</p>
 
                 <label htmlFor="NumOfExteriorDiningSeats">Exterior Dining Seats Number: </label>
-                <input type="text" id="NumOfExteriorDiningSeats" {...register("NumOfExteriorDiningSeats", { required: { value: true, message: 'Exterior Dining Seats Number is required' } })} />
+                <input type="text" id="NumOfExteriorDiningSeats" {...register("NumOfExteriorDiningSeats", { required: { value: false, message: 'Exterior Dining Seats Number is required' } })} />
                 <p className='error'>{errors.NumOfExteriorDiningSeats?.message}</p>
 
                 <label htmlFor="NumOfPatioLoungers">Number of Patio Loungers: </label>
-                <input type="text" id="NumOfPatioLoungers" {...register("NumOfPatioLoungers", { required: { value: true, message: 'Number of Patio Loungers is required' } })} />
+                <input type="text" id="NumOfPatioLoungers" {...register("NumOfPatioLoungers", { required: { value: false, message: 'Number of Patio Loungers is required' } })} />
                 <p className='error'>{errors.NumOfPatioLoungers?.message}</p>
 
                 <label htmlFor="PoolSize">Pool Size: </label>
-                <input type="text" id="PoolSize" {...register("PoolSize", { required: { value: true, message: 'Pool Size is required' } })} />
+                <input type="text" id="PoolSize" {...register("PoolSize", { required: { value: false, message: 'Pool Size is required' } })} />
                 <p className='error'>{errors.PoolSize?.message}</p>
 
                 <label htmlFor="JacuzziSize">Jacuzzi Size: </label>
-                <input type="text" id="JacuzziSize" {...register("JacuzziSize", { required: { value: true, message: 'Jacuzzi Size is required' } })} />
+                <input type="text" id="JacuzziSize" {...register("JacuzziSize", { required: { value: false, message: 'Jacuzzi Size is required' } })} />
                 <p className='error'>{errors.JacuzziSize?.message}</p>
 
                 <label htmlFor="NumOfGardenGrounds">Garden/Grounds: </label>
-                <input type="text" id="NumOfGardenGrounds" {...register("NumOfGardenGrounds", { required: { value: true, message: 'Garden/Grounds is required' } })} />
+                <input type="text" id="NumOfGardenGrounds" {...register("NumOfGardenGrounds", { required: { value: false, message: 'Garden/Grounds is required' } })} />
                 <p className='error'>{errors.NumOfGardenGrounds?.message}</p>
 
             </div>

@@ -217,7 +217,7 @@ export const Tab5: React.FC<Tab5Props> = ({ register, errors, control }) => {
             </div>
 
             <label htmlFor="BreakfastServiceIncluded">Breakfast Service Included: </label>
-            <select id="BreakfastServiceIncluded" {...register("BreakfastServiceIncluded", { required: "Breakfast Service Included is required" })}>
+            <select id="BreakfastServiceIncluded" {...register("BreakfastServiceIncluded", { required: { value: false, message: "Breakfast Service Included is required" } })}>
                 <option value="">Select an Option</option>
                 <option value="Yes">Yes</option>
                 <option value="No">No</option>
@@ -225,7 +225,7 @@ export const Tab5: React.FC<Tab5Props> = ({ register, errors, control }) => {
             <p className='error'>{errors.BreakfastServiceIncluded?.message}</p>
 
             <label htmlFor="SnackServiceIncluded">Snack Service Included: </label>
-            <select id="SnackServiceIncluded" {...register("SnackServiceIncluded", { required: "Snack Service Included is required" })}>
+            <select id="SnackServiceIncluded" {...register("SnackServiceIncluded", { required: { value: false, message: "Snack Service Included is required" } })}>
                 <option value="">Select an Option</option>
                 <option value="Yes">Yes</option>
                 <option value="No">No</option>
@@ -291,7 +291,7 @@ export const Tab5: React.FC<Tab5Props> = ({ register, errors, control }) => {
             </div>
 
             <label htmlFor="SnackServiceIncluded">Cleaning Frequency: </label>
-            <select id="CleaningFrequency" {...register("CleaningFrequency", { required: "Cleaning Frequency is required" })}>
+            <select id="CleaningFrequency" {...register("CleaningFrequency", { required: { value: false, message: "Cleaning Frequency is required" } })}>
                 <option value="">Select an Option</option>
                 <option value="Everyday">Everyday</option>
                 <option value="Every 3 Days">Every 3 Days</option>
@@ -300,7 +300,7 @@ export const Tab5: React.FC<Tab5Props> = ({ register, errors, control }) => {
             <p className='error'>{errors.CleaningFrequency?.message}</p>
 
             <label htmlFor="SnackServiceIncluded">Changes of Sheets and Linens Frquency: </label>
-            <select id="ChangesOfSheetFrquency" {...register("ChangesOfSheetFrquency", { required: "Changes of Sheets and Linens Frquency is required" })}>
+            <select id="ChangesOfSheetFrquency" {...register("ChangesOfSheetFrquency", { required: { value: false, message: "Changes of Sheets and Linens Frquency is required" } })}>
                 <option value="">Select an Option</option>
                 <option value="Everyday">Everyday</option>
                 <option value="Every 3 Days">Every 3 Days</option>

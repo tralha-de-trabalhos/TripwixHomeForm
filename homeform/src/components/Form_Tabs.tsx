@@ -1,8 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useForm, FormProvider, SubmitHandler, FieldErrors } from 'react-hook-form';
-import Tab from 'react-bootstrap/Tab';
-import Tabs from 'react-bootstrap/Tabs';
-import Button from 'react-bootstrap/Button';
+import { Modal, Button, Tabs, Tab } from 'react-bootstrap';
 import { createPdf } from './pdf';
 
 import { Tab1 } from './Tab1';
@@ -24,12 +22,12 @@ import { FormValues } from './Data_types';
 
 function FillExample() {
   const methods = useForm<FormValues>({
-    mode: 'onBlur',
+    mode: 'onChange',
   });
 
   const { handleSubmit, register, control, formState: { errors } } = methods;
   const [activeTab, setActiveTab] = useState('tab1');
-  const [isSubmitted, setIsSubmitted] = useState(false);
+  const [showModal, setShowModal] = useState(false);
   const [missingFields, setMissingFields] = useState<string[]>([]);
 
   const onSubmit: SubmitHandler<FormValues> = async (data) => {
@@ -62,15 +60,61 @@ function FillExample() {
     });
 
     if (response.ok) {
-      alert(`Form Validated, Email sent to ${process.env.REACT_APP_EMAIL_RECEIVER2}`);
-      methods.reset(); // Reseta os campos do formulário
-      setActiveTab('tab1'); // Volta à primeira aba
+      setShowModal(true); // Show the modal when email is sent
       console.log('Email enviado com sucesso!');
-      setIsSubmitted(true); // Marcar como enviado
     } else {
       console.error('Erro ao enviar o email.');
     }
   };
+
+  // Function to handle modal confirmation
+  const handleOkModal = () => {
+    methods.reset(); // Reseta os campos do formulário
+    setActiveTab('tab1'); // Volta para a primeira aba
+    setShowModal(false); // Fecha o modal
+  };
+
+  // Function to resend email
+  const handleResendEmail = async () => {
+    const data = methods.getValues(); // Obtém os valores atuais do formulário
+    const pdfBlob = await createPdf(data); // Cria o PDF novamente com os dados do formulário
+
+    const formData = new FormData();
+    const now = new Date();
+    const formattedDate = now.toLocaleString('pt-PT', {
+      year: 'numeric',
+      month: '2-digit',
+      day: '2-digit',
+      hour: '2-digit',
+      minute: '2-digit',
+      hour12: false,
+    }).replace(/\//g, '.').replace(',', '').replace(' ', ' - ').replace(':', '.');
+
+    // Adicione o Blob do PDF e o nome do arquivo
+    formData.append('pdf', pdfBlob, `Tripwix-HomeForm-${formattedDate}.pdf`);
+    formData.append('emailData', JSON.stringify({
+      //REACT_APP_EMAIL_RECEIVER1
+      to: process.env.REACT_APP_EMAIL_RECEIVER2 || process.env.REACT_APP_EMAIL_RECEIVER2,
+      subject: 'Home Form',
+      text: 'Encontra-se em anexo o Home Form criado.',
+    }));
+
+    const response = await fetch('http://localhost:5000/send-email', {
+      method: 'POST',
+      body: formData,
+    });
+
+    if (response.ok) {
+      alert(`Email sent to ${process.env.REACT_APP_EMAIL_RECEIVER2} again!`);
+      setShowModal(false); // Fecha o modal após o reenvio
+      methods.reset(); // Reset the form
+      setActiveTab('tab1'); // Go back to the first tab  
+    } else {
+      console.error('Error resending the email.');
+      alert('Failed to resend the email. Please try again later.');
+    }
+  };
+
 
   // Mapeamento das abas e seus campos
   const tabFieldMapping: { [key in keyof FormValues]?: string } = {
@@ -330,6 +374,24 @@ function FillExample() {
         {/*       {isSubmitted && activeTab === 'tab13' && <p>All submitted</p>} */}
 
       </form>
+
+      {/* Modal for confirmation */}
+      <Modal show={showModal}>
+        <Modal.Header closeButton>
+          <Modal.Title>Confirmation</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          Form Validated, Email sent to {process.env.REACT_APP_EMAIL_RECEIVER2}. Please check your email.
+        </Modal.Body>
+        <Modal.Footer>
+          <Button variant="primary" onClick={handleOkModal}>
+            Ok
+          </Button>
+          <Button variant="danger" onClick={handleResendEmail}>
+            Resend Email
+          </Button>
+        </Modal.Footer>
+      </Modal>
 
     </FormProvider>
 

@@ -86,7 +86,7 @@ export const Tab3: React.FC<Tab3Props> = ({ register, errors }) => {
             </div>
 
             <label htmlFor='PlacesWhereHouseMarketed'>Places Where the House is Already Marketed: </label>
-            <input type="PlacesWhereHouseMarketed" id="PlacesWhereHouseMarketed" {...register("PlacesWhereHouseMarketed", { required: { value: true, message: 'Places where House is Marketed necessária' } })} />
+            <input type="PlacesWhereHouseMarketed" id="PlacesWhereHouseMarketed" {...register("PlacesWhereHouseMarketed", { required: { value: false, message: 'Places where House is Marketed necessária' } })} />
             <p className='error'>{errors.PlacesWhereHouseMarketed?.message}</p>
 
             <label htmlFor='Website'>Website Internet Address (When Exists): </label>
@@ -94,7 +94,7 @@ export const Tab3: React.FC<Tab3Props> = ({ register, errors }) => {
 
             <div>
                 <label htmlFor='ExpectedRates'>Expected Rates to Owner (Without TW Commission): </label>
-                <textarea id="ExpectedRates" {...register("ExpectedRates", { required: { value: true, message: 'Expected Rates to Ownernão pode estar vazia' } })} />
+                <textarea id="ExpectedRates" {...register("ExpectedRates", { required: { value: false, message: 'Expected Rates to Ownernão pode estar vazia' } })} />
                 <p className='error'>{errors.ExpectedRates?.message}</p>
             </div>
         </div>

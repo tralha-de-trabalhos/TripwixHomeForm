@@ -42,7 +42,7 @@ export const Tab4: React.FC<Tab4Props> = ({ register, errors }) => {
 
             <div>
                 <label htmlFor="MinimumAgeOfGuest">Minimum Age of Guest: </label>
-                <input type="text" id="MinimumAgeOfGuest" {...register("MinimumAgeOfGuest", { required: { value: true, message: 'Minimum Age of Guest is required' } })} />
+                <input type="text" id="MinimumAgeOfGuest" {...register("MinimumAgeOfGuest", { required: { value: false, message: 'Minimum Age of Guest is required' } })} />
                 <p className='error'>{errors.MinimumAgeOfGuest?.message}</p>
             </div>
 
@@ -124,15 +124,15 @@ export const Tab4: React.FC<Tab4Props> = ({ register, errors }) => {
 
             <div>
                 <label htmlFor="MinutesNameOfAirport">Minutes To / Name of Airport: </label>
-                <input type="text" id="MinutesNameOfAirport" {...register("MinutesNameOfAirport", { required: { value: true, message: 'Minutes To / Name of Airport is required' } })} />
+                <input type="text" id="MinutesNameOfAirport" {...register("MinutesNameOfAirport", { required: { value: false, message: 'Minutes To / Name of Airport is required' } })} />
                 <p className='error'>{errors.MinutesNameOfAirport?.message}</p>
 
                 <label htmlFor="MinutesNameOfAttaction">Minutes To / Name of Nearest Attraction: </label>
-                <input type="text" id="MinutesNameOfAttaction" {...register("MinutesNameOfAttaction", { required: { value: true, message: 'Minutes To / Name of Nearest Attraction is required' } })} />
+                <input type="text" id="MinutesNameOfAttaction" {...register("MinutesNameOfAttaction", { required: { value: false, message: 'Minutes To / Name of Nearest Attraction is required' } })} />
                 <p className='error'>{errors.MinutesNameOfAttaction?.message}</p>
 
                 <label htmlFor="MinutesNameOfVillage">Minutes To/ Name of Nearest Village: </label>
-                <input type="text" id="MinutesNameOfVillage" {...register("MinutesNameOfVillage", { required: { value: true, message: 'Minutes To/ Name of Nearest Village is required' } })} />
+                <input type="text" id="MinutesNameOfVillage" {...register("MinutesNameOfVillage", { required: { value: false, message: 'Minutes To/ Name of Nearest Village is required' } })} />
                 <p className='error'>{errors.MinutesNameOfVillage?.message}</p>
             </div>
 
