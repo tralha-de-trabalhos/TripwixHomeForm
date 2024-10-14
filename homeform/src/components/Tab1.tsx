@@ -81,7 +81,7 @@ export const Tab1: React.FC<Tab1Props> = ({ register, errors }) => {
             <p className='error'>{errors.TelNumb?.message}</p>
 
             <label htmlFor='Email'>Email: </label>
-            <input type="Email" id="Email" {...register("Email", { pattern: { value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i, message: 'Email inválido' } })} />
+            <input type="Email" id="Email" {...register("Email", { required: { value: true, message: 'Email é Necessário' }, pattern: { value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i, message: 'Email inválido' } })} />
             <p className='error'>{errors.Email?.message}</p>
 
             <label htmlFor='Adress'>Adress: </label>

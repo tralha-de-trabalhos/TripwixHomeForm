@@ -37,7 +37,7 @@ export const Tab9: React.FC<Tab9Props> = ({ register, errors }) => {
                             value={option}
                             {...register("Location")}
                         />
-                        <label htmlFor={`Amenities-${index}`}>{option}</label>
+                        <label htmlFor={`Location-${index}`}>{option}</label>
                     </div>
                 ))}
             </div>
@@ -51,7 +51,7 @@ export const Tab9: React.FC<Tab9Props> = ({ register, errors }) => {
                             value={option}
                             {...register("PopularAmenities")}
                         />
-                        <label htmlFor={`Amenities-${index}`}>{option}</label>
+                        <label htmlFor={`PopularAmenities-${index}`}>{option}</label>
                     </div>
                 ))}
             </div>

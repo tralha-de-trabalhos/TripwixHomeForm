@@ -82,7 +82,7 @@ export const Tab3: React.FC<Tab3Props> = ({ register, errors }) => {
                     value="Luxury Retreats"
                     {...register("ChannelPartnerListed")}
                 />
-                <label htmlFor="Luxury Retreats">Luxury Retreats</label>
+                <label htmlFor="LuxuryRetreats">Luxury Retreats</label>
             </div>
 
             <label htmlFor='PlacesWhereHouseMarketed'>Places Where the House is Already Marketed: </label>
