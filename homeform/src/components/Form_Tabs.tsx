@@ -315,6 +315,7 @@ function FillExample() {
           <Tab eventKey="tab13" title="Validation">
             <Tab13 register={register} errors={errors} />
             <Button variant="secondary" onClick={handlePreviousTab}>Previous Page</Button>
+            <button type="submit" onClick={() => handleMissingFields(errors)}>Submit All</button>
             <div>
               {missingFields.length > 0 && (
                 <div className="missing-fields">
@@ -326,7 +327,6 @@ function FillExample() {
                   </ul>
                 </div>
               )}
-              <button type="submit" onClick={() => handleMissingFields(errors)}>Submit All</button>
             </div>
           </Tab>
 
