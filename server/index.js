@@ -65,7 +65,7 @@ app.post('/send-email', upload.single('pdf'), async (req, res) => {
         res.status(200).send('Email enviado com sucesso!');
 
     } catch (error) {
-        console.error("Erro ao enviar o e-mail:", error);  // Log do erro
+        console.error("Erro ao enviar o e-mail:", error);
         res.status(500).send('Erro ao enviar o email.');
     }
 });
