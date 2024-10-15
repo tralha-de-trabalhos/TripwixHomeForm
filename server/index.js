@@ -4,23 +4,14 @@ const nodemailer = require('nodemailer');
 const multer = require('multer'); // Importa o multer
 require('dotenv').config();
 const path = require('path');
-// const fs = require('fs'); // Importa o módulo fs para remover o pdf da pasta uploads
 
 const app = express();
 app.use(cors());
 app.use(express.json());
 
-// Configuração do multer
-const storage = multer.diskStorage({
-    destination: (req, file, cb) => {
-        cb(null, 'uploads'); // Define o diretório onde os arquivos serão salvos
-    },
-    filename: (req, file, cb) => {
-        cb(null, file.originalname); // Usar o nome original do arquivo
-    }
-});
-
-const upload = multer({ storage }); // Inicializa o multer com a configuração de armazenamento
+// Configuração do multer para salvar o ficheiro em memória
+const storage = multer.memoryStorage(); // Usar armazenamento em memória
+const upload = multer({ storage }); // Inicializa o multer com a configuração de armazenamento em memória
 
 console.log(process.env.EMAIL_USER);
 console.log(process.env.EMAIL_PASS);
@@ -31,12 +22,17 @@ app.get('/', (req, res) => {
 
 app.post('/send-email', upload.single('pdf'), async (req, res) => {
     try {
+        // Verifica se há ficheiro anexado
+        if (!req.file) {
+            return res.status(400).send('Nenhum arquivo foi carregado.');
+        }
+
         const { to, subject, text } = JSON.parse(req.body.emailData);
-        const pdfFilePath = path.join(__dirname, 'uploads', req.file.filename);
 
         console.log("E-mail data:", { to, subject, text });
-        console.log("PDF path:", pdfFilePath);
+        console.log("Arquivo PDF carregado com sucesso:", req.file.originalname);
 
+        // Configuração do Nodemailer
         const transporter = nodemailer.createTransport({
             service: 'gmail',
             auth: {
@@ -52,25 +48,22 @@ app.post('/send-email', upload.single('pdf'), async (req, res) => {
             text,
             attachments: [
                 {
-                    filename: 'Tripwix-HomeForm-' + new Date().toLocaleDateString('pt-PT') + ' - ' + new Date().toLocaleTimeString('pt-PT', { hour: '2-digit', minute: '2-digit' }).replace(':', '.') + '.pdf',
-                    path: pdfFilePath,
+                    filename: 'Tripwix-HomeForm-' +
+                        new Date().toLocaleDateString('pt-PT') + ' - ' +
+                        new Date().toLocaleTimeString('pt-PT', { hour: '2-digit', minute: '2-digit' }).replace(':', '.') + '.pdf',
+                    content: req.file.buffer, // O ficheiro em buffer, sem salvar no disco
+                    contentType: req.file.mimetype // Tipo MIME do ficheiro
                 },
             ],
         };
 
+        // Envia o e-mail
         await transporter.sendMail(mailOptions);
         console.log('E-mail enviado com sucesso');
 
+        // Responde com sucesso
         res.status(200).send('Email enviado com sucesso!');
-        /*        // Remover o arquivo após o envio (opcional)
-        fs.unlink(pdfFilePath, (err) => {
-            if (err) {
-                console.error('Erro ao remover o arquivo:', err);
-                return; // Não envie outra resposta
-            }
-            console.log('Arquivo removido com sucesso:', pdfFilePath);
-        });
-*/
+
     } catch (error) {
         console.error("Erro ao enviar o e-mail:", error);  // Log do erro
         res.status(500).send('Erro ao enviar o email.');
