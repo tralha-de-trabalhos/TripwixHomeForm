@@ -29,54 +29,50 @@ app.get('/', (req, res) => {
     res.send('Server is running');
 });
 
-
 app.post('/send-email', upload.single('pdf'), async (req, res) => {
-    const { to, subject, text } = JSON.parse(req.body.emailData); // Pega os dados do email
-    const pdfFilePath = path.join(__dirname, 'uploads', req.file.filename); // Caminho do PDF
-
-    // Configuração do Nodemailer
-    const transporter = nodemailer.createTransport({
-        service: 'gmail',
-        auth: {
-            user: process.env.EMAIL_USER, // seu email
-            pass: process.env.EMAIL_PASS,  // sua senha
-        },
-    });
-
-    const mailOptions = {
-        from: process.env.EMAIL_USER,
-        to,
-        subject,
-        text,
-        attachments: [
-            {
-                filename: 'Tripwix-HomeForm-' +
-                    new Date().toLocaleDateString('pt-PT') +
-                    ' - ' +
-                    new Date().toLocaleTimeString('pt-PT', { hour: '2-digit', minute: '2-digit' }).replace(':', '.') +
-                    '.pdf', // Altera o nome do arquivo
-                path: pdfFilePath // Anexa o PDF
-            }
-        ]
-    };
-
     try {
+        const { to, subject, text } = JSON.parse(req.body.emailData);
+        const pdfFilePath = path.join(__dirname, 'uploads', req.file.filename);
+
+        console.log("E-mail data:", { to, subject, text });
+        console.log("PDF path:", pdfFilePath);
+
+        const transporter = nodemailer.createTransport({
+            service: 'gmail',
+            auth: {
+                user: process.env.EMAIL_USER,
+                pass: process.env.EMAIL_PASS,
+            },
+        });
+
+        const mailOptions = {
+            from: process.env.EMAIL_USER,
+            to,
+            subject,
+            text,
+            attachments: [
+                {
+                    filename: 'Tripwix-HomeForm-' + new Date().toLocaleDateString('pt-PT') + ' - ' + new Date().toLocaleTimeString('pt-PT', { hour: '2-digit', minute: '2-digit' }).replace(':', '.') + '.pdf',
+                    path: pdfFilePath,
+                },
+            ],
+        };
+
         await transporter.sendMail(mailOptions);
+        console.log('E-mail enviado com sucesso');
 
-        // Envia a resposta ao cliente
         res.status(200).send('Email enviado com sucesso!');
-
         /*        // Remover o arquivo após o envio (opcional)
-                fs.unlink(pdfFilePath, (err) => {
-                    if (err) {
-                        console.error('Erro ao remover o arquivo:', err);
-                        return; // Não envie outra resposta
-                    }
-                    console.log('Arquivo removido com sucesso:', pdfFilePath);
-                });
-        */
+        fs.unlink(pdfFilePath, (err) => {
+            if (err) {
+                console.error('Erro ao remover o arquivo:', err);
+                return; // Não envie outra resposta
+            }
+            console.log('Arquivo removido com sucesso:', pdfFilePath);
+        });
+*/
     } catch (error) {
-        console.error(error);
+        console.error("Erro ao enviar o e-mail:", error);  // Log do erro
         res.status(500).send('Erro ao enviar o email.');
     }
 });
