@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { useForm, FormProvider, SubmitHandler, FieldErrors } from 'react-hook-form';
-import { Modal, Button, Tabs, Tab } from 'react-bootstrap';
+import { Button, Tabs, Tab } from 'react-bootstrap';
 import { createPdf } from './pdf';
+import ConfirmationModal from './ConfirmationModal';
 
 import { Tab1 } from './Tab1';
 import { Tab2 } from './Tab2';
@@ -390,23 +391,13 @@ function FillExample() {
 
       </form>
 
-      {/* Modal for confirmation */}
-      <Modal show={showModal}>
-        <Modal.Header closeButton>
-          <Modal.Title>Confirmation</Modal.Title>
-        </Modal.Header>
-        <Modal.Body>
-          Form Validated, Email sent to {process.env.REACT_APP_EMAIL_RECEIVER2}. Please check your email.
-        </Modal.Body>
-        <Modal.Footer>
-          <Button variant="primary" onClick={handleOkModal}>
-            Ok
-          </Button>
-          <Button variant="danger" onClick={handleResendEmail}>
-            Resend Email
-          </Button>
-        </Modal.Footer>
-      </Modal>
+      {/* Modal para confirmar envio do e-mail */}
+      <ConfirmationModal
+        show={showModal}
+        onHide={handleOkModal}
+        onResendEmail={handleResendEmail}
+        emailReceiver={process.env.REACT_APP_EMAIL_RECEIVER2}
+      />
 
     </FormProvider>
 

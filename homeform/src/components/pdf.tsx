@@ -1,7 +1,8 @@
 import React from 'react';
-import { Page, Text, View, Document, StyleSheet, pdf } from '@react-pdf/renderer';
+import { Page, Text, View, Document, Image, StyleSheet, pdf } from '@react-pdf/renderer';
 // import { saveAs } from 'file-saver'; // Para o download do PDF
 import { FormValues } from './Data_types';
+import image from '../images/logo_tripwix.png'
 
 // Estilos para o PDF
 const styles = StyleSheet.create({
@@ -35,7 +36,14 @@ const styles = StyleSheet.create({
         color: '#000',
         marginBottom: 10,
         fontWeight: 'bold',
-    }
+    },
+
+    image: {
+        alignSelf: 'center',
+        marginBottom: '20px',
+        height: '10%',
+        width: '20%',
+    },
 });
 
 
@@ -108,6 +116,7 @@ const MyDocument = ({ formValues }: { formValues: FormValues }) => {
     return (
         <Document>
             <Page size="A4" style={styles.page}>
+                <Image src={image} style={styles.image} />
                 <View style={styles.section}>
                     {/* Tab1 - House Walkthrough Form */}
                     <Text style={styles.tab}>House Walkthrough Form</Text>
