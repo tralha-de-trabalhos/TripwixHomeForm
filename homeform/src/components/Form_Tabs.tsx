@@ -107,7 +107,14 @@ function FillExample() {
       text: 'Encontra-se em anexo o Home Form criado.',
     }));
 
+    {/* Para usar em desenvolvimento - server local
     const response = await fetch('http://localhost:5000/send-email', {
+      method: 'POST',
+      body: formData,
+    });
+    */}
+
+    const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/send-email`, {
       method: 'POST',
       body: formData,
     });
