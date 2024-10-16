@@ -23,7 +23,8 @@ export const Tab10: React.FC<Tab10Props> = ({ register, errors }) => {
     ];
 
     return (
-        <div>
+        <div className='container'>
+
             <div id='title'>Only necessary for NEW destinations or communities.</div>
             <div className="amenities-grid">
                 <label><strong>Cultural: </strong></label>
@@ -39,6 +40,7 @@ export const Tab10: React.FC<Tab10Props> = ({ register, errors }) => {
                     </div>
                 ))}
             </div>
+
             <div className="amenities-grid">
                 <label><strong>Leisure: </strong></label>
                 {leisureOptions.map((option, index) => (
@@ -53,6 +55,7 @@ export const Tab10: React.FC<Tab10Props> = ({ register, errors }) => {
                     </div>
                 ))}
             </div>
+
         </div>
     )
 }

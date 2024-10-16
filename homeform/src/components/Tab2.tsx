@@ -10,11 +10,11 @@ interface Tab2Props {
 
 export const Tab2: React.FC<Tab2Props> = ({ register, errors }) => {
     return (
-        <div>
+        <div className='container'>
 
             <label htmlFor="RelationshipToProp">Relationship to Property: </label>
             <select id="RelationshipToProp" {...register("RelationshipToProp", { required: { value: false, message: "Relationship to Property is required" } })}>
-                <option value="">Select an option</option>
+                <option value="">Select an Option</option>
                 <option value="Owner">Owner</option>
                 <option value="Property Manager">Property Manager</option>
                 <option value="Real State Agent">Real State Agent</option>

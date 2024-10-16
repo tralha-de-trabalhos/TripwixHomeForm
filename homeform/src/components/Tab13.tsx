@@ -12,7 +12,8 @@ interface Tab13Props {
 export const Tab13: React.FC<Tab13Props> = ({ register, errors }) => {
 
     return (
-        <div>
+        <div className='container'>
+
             <label htmlFor="CuratAmbname">Curator or Amb Responsible for this Form: </label>
             <input type="text" id="CuratAmbname" {...register("CuratAmbname", { required: { value: true, message: 'Curator or Ambassador Name is required' } })} />
             <p className='error'>{errors.CuratAmbname?.message}</p>

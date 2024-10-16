@@ -40,7 +40,8 @@ export const Tab11: React.FC<Tab11Props> = ({ register, errors }) => {
     ];
 
     return (
-        <div>
+        <div className='container'>
+
             <div id='title'>Only necessary for NEW destinations or communities.</div>
             <div className="amenities-grid">
                 <label><strong>Active: </strong></label>
@@ -57,6 +58,7 @@ export const Tab11: React.FC<Tab11Props> = ({ register, errors }) => {
 
                 ))}
             </div>
+
             <div className="amenities-grid">
                 <label><strong>Golf: </strong></label>
                 {golfOptions.map((option, index) => (
@@ -72,6 +74,7 @@ export const Tab11: React.FC<Tab11Props> = ({ register, errors }) => {
 
                 ))}
             </div>
+
             <div className="amenities-grid">
                 <label><strong>Hiking and Biking: </strong></label>
                 {hikingBikingOptions.map((option, index) => (
@@ -87,6 +90,7 @@ export const Tab11: React.FC<Tab11Props> = ({ register, errors }) => {
 
                 ))}
             </div>
+
             <div className="amenities-grid">
                 <label><strong>Water Sports: </strong></label>
                 {waterSportsOptions.map((option, index) => (
@@ -102,6 +106,7 @@ export const Tab11: React.FC<Tab11Props> = ({ register, errors }) => {
 
                 ))}
             </div>
+
             <div className="amenities-grid">
                 <label><strong>Winter Activities: </strong></label>
                 {winterActivitiesOptions.map((option, index) => (
@@ -117,6 +122,7 @@ export const Tab11: React.FC<Tab11Props> = ({ register, errors }) => {
 
                 ))}
             </div>
+
         </div>
     )
 }

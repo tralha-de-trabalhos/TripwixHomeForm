@@ -31,7 +31,8 @@ export const Tab6: React.FC<Tab6Props> = ({ register, errors }) => {
     ];
 
     return (
-        <div>
+        <div className='container'>
+
             <div className="amenities-grid">
                 <label><strong>Kitchen & Dining: </strong></label>
                 {kitchenDiningOptions.map((option, index) => (
@@ -104,6 +105,7 @@ export const Tab6: React.FC<Tab6Props> = ({ register, errors }) => {
                 <textarea id="SpecialFeaturesInterior" {...register("SpecialFeaturesInterior", { required: { value: false, message: 'Special Features não pode estar vazia' } })} />
                 <p className='error'>{errors.SpecialFeaturesInterior?.message}</p>
             </div>
+
         </div>
     )
 }

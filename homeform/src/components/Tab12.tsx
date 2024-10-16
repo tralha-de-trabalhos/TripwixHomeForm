@@ -20,7 +20,8 @@ export const Tab12: React.FC<Tab12Props> = ({ register, errors }) => {
     ];
 
     return (
-        <div>
+        <div className='container'>
+
             <div id='title'>Only necessary for NEW destinations or communities.</div>
             <div className="amenities-grid">
                 <label><strong>Experiences: </strong></label>
@@ -36,6 +37,7 @@ export const Tab12: React.FC<Tab12Props> = ({ register, errors }) => {
                     </div>
                 ))}
             </div>
+
         </div>
     )
 }
