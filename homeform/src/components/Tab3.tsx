@@ -10,7 +10,8 @@ interface Tab3Props {
 export const Tab3: React.FC<Tab3Props> = ({ register, errors }) => {
 
     return (
-        <div>
+        <div className='container'>
+
             <label><strong>Channel Partners Where is Listed: </strong></label>
             <div>
                 <input
@@ -97,6 +98,7 @@ export const Tab3: React.FC<Tab3Props> = ({ register, errors }) => {
                 <textarea id="ExpectedRates" {...register("ExpectedRates", { required: { value: false, message: 'Expected Rates to Ownernão pode estar vazia' } })} />
                 <p className='error'>{errors.ExpectedRates?.message}</p>
             </div>
+
         </div>
     )
 }

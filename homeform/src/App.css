@@ -36,6 +36,119 @@
   }
 }
 
+div {
+  margin-bottom: 10px;
+}
+
+label {
+  font-weight: bold;
+}
+
+input {
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-bottom: 15px;
+  width: 20%;
+}
+
+select {
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-bottom: 15px;
+  width: 11%;
+}
+
+textarea {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 100%;
+  height: 100%;
+}
+
+/*container geral*/
+.container {
+  display: flex;
+  flex-direction: column;
+  align-content: space-around;
+  flex-wrap: wrap;
+  padding: 20px;
+}
+
+/*checkbox*/
+/*tab1*/
+#gated-community,
+#live-in-staff,
+#alarm-system,
+#security {
+  width: 5%;
+}
+
+/*tab4*/
+
+/*tab5*/
+
+/*tab6*/
+
+/*tab7*/
+
+/*tab8*/
+
+/*tab9*/
+
+/*tab10*/
+
+/*tab11*/
+
+/*tab12*/
+
+
+/*dropdowns*/
+/*tab1*/
+#Category {
+  width: 13%;
+}
+
+#TypeOfProp {
+  width: 17%;
+}
+
+/*tab2*/
+#OwnerProfile {
+  width: 48%;
+}
+
+/*tab2*/
+#RelationshipToProp,
+/*tab5*/
+#BreakfastServiceIncluded,
+#SnackServiceIncluded,
+#CleaningFrequency,
+#ChangesOfSheetFrquency {
+  width: 13%;
+}
+
+/*tab4*/
+#LocationViews,
+#DesignLayout,
+#QualityFurnishings,
+#Cleanliness,
+#Facilities,
+#OverallRating {
+  width: 5%;
+}
+
+/*tab8*/
+[id^="Bedroom"] {
+  width: 25%;
+}
+
+[id^="Bed"] {
+  width: 21%;
+}
+
 .error {
   color: red;
   font-size: 12px;

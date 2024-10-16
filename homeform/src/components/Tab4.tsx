@@ -24,7 +24,8 @@ export const Tab4: React.FC<Tab4Props> = ({ register, errors }) => {
     const generateOptions = () => Array.from({ length: 6 }, (_, index) => index); // Opções de 0 a 5
 
     return (
-        <div>
+        <div className='container'>
+
             <div className="amenities-grid">
                 <label><strong>Theme: </strong></label>
                 {themeOptions.map((option, index) => (

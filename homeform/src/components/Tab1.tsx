@@ -2,7 +2,6 @@ import React from 'react';
 import { FieldErrors, UseFormRegister } from 'react-hook-form';
 import { FormValues } from './Data_types';
 
-
 interface Tab1Props {
     register: UseFormRegister<FormValues>;
     errors: FieldErrors<FormValues>;
@@ -15,7 +14,8 @@ export const Tab1: React.FC<Tab1Props> = ({ register, errors }) => {
     };
 
     return (
-        <div>
+        <div className='container'>
+
             <label htmlFor="Ambname">Ambassador Name: </label>
             <input type="text" id="Ambname" {...register("Ambname", { required: { value: false, message: 'Ambassador Name is required' } })} />
             <p className='error'>{errors.Ambname?.message}</p>
@@ -96,7 +96,7 @@ export const Tab1: React.FC<Tab1Props> = ({ register, errors }) => {
             <div>
                 <input
                     type="checkbox"
-                    id="24-7-security"
+                    id="security"
                     value="24/7 Security"
                     {...register("Security")}
                 />
@@ -199,12 +199,14 @@ export const Tab1: React.FC<Tab1Props> = ({ register, errors }) => {
             </select>
             <p className='error'>{errors.TypeOfProp?.message}</p>
 
-            <label htmlFor='NumbOfFloorsInBuilding'>Number of Floors in Building (If Apartment or Condo): </label>
-            <select id="NumbOfFloorsInBuilding" {...register("NumbOfFloorsInBuilding", { required: { value: false, message: "Número de andares do edifício" } })} >
-                {generateOptions().map(number => (
-                    <option key={number} value={number}>{number}</option>
-                ))}
-            </select>
+            <div>
+                <label htmlFor='NumbOfFloorsInBuilding'>Number of Floors in Building (If Apartment or Condo): </label>
+                <select id="NumbOfFloorsInBuilding" {...register("NumbOfFloorsInBuilding", { required: { value: false, message: "Número de andares do edifício" } })} >
+                    {generateOptions().map(number => (
+                        <option key={number} value={number}>{number}</option>
+                    ))}
+                </select>
+            </div>
 
             <div>
                 <label htmlFor='NumbOfFloorsInProp'>Number of Floors in Property: </label>
@@ -217,9 +219,10 @@ export const Tab1: React.FC<Tab1Props> = ({ register, errors }) => {
 
             <div>
                 <label htmlFor='GenExtDescrip'>General Exterior Description: </label>
-                <textarea id="GenExtDescrip" {...register("GenExtDescrip", { required: { value: false, message: 'Descrição Geral do Exterior não pode estar vazia' } })} />
                 <p className='error'>{errors.GenExtDescrip?.message}</p>
+                <textarea id="GenExtDescrip" {...register("GenExtDescrip", { required: { value: false, message: 'Descrição Geral do Exterior não pode estar vazia' } })} />
             </div>
+
         </div>
     )
 }

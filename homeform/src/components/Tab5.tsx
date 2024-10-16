@@ -35,7 +35,7 @@ export const Tab5: React.FC<Tab5Props> = ({ register, errors, control }) => {
     const isOtherSelected = accessibilityFeatures?.includes('Other');
 
     return (
-        <div>
+        <div className='container'>
 
             <label><strong>Meals: </strong></label>
             <div>
@@ -612,6 +612,7 @@ export const Tab5: React.FC<Tab5Props> = ({ register, errors, control }) => {
                     </div>
                 )}
             </div>
+
         </div>
     );
 };

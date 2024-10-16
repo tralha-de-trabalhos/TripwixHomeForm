@@ -69,9 +69,12 @@ export const Tab8: React.FC<Tab8Props> = ({ register, errors }) => {
     ];
 
     return (
-        <div>
+        <div className='container'>
+
             {bedrooms.map((bedroom, index) => (
+
                 <div key={index}>
+
                     <label htmlFor={`Bedroom${index}`}>Bedroom {index + 1}: </label>
                     <select
                         id={`Bedroom${index}`}
@@ -119,7 +122,7 @@ export const Tab8: React.FC<Tab8Props> = ({ register, errors }) => {
                             });
                         }}
                     >
-                        <option value="">Select a bed type</option>
+                        <option value="">Select a Bed Type</option>
                         <option value="California King">California King</option>
                         <option value="Extra Large King">Extra Large King</option>
                         <option value="King">King</option>
@@ -392,10 +395,12 @@ export const Tab8: React.FC<Tab8Props> = ({ register, errors }) => {
                             }}
                         />
                     </div>
+
                 </div>
             ))}
             <button type="button" onClick={addBedroom}>Add Bedroom</button>
             <button type="button" onClick={removeLastBedroom}>Remove Bedroom</button>
+
         </div>
     );
 };

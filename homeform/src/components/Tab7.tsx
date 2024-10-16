@@ -23,7 +23,8 @@ export const Tab7: React.FC<Tab7Props> = ({ register, errors }) => {
     ];
 
     return (
-        <div>
+        <div className='container'>
+
             <div className="amenities-grid">
                 <label><strong>Outdoor Features: </strong></label>
                 {outdoorFeaturesOptions.map((option, index) => (
@@ -98,6 +99,7 @@ export const Tab7: React.FC<Tab7Props> = ({ register, errors }) => {
                 <textarea id="SpecialFeaturesExterior" {...register("SpecialFeaturesExterior", { required: { value: false, message: 'Special Features não pode estar vazia' } })} />
                 <p className='error'>{errors.SpecialFeaturesExterior?.message}</p>
             </div>
+
         </div>
     )
 
