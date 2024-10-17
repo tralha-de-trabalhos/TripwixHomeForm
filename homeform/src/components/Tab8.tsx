@@ -75,124 +75,128 @@ export const Tab8: React.FC<Tab8Props> = ({ register, errors }) => {
 
                 <div key={index}>
 
-                    <label htmlFor={`Bedroom${index}`}>Bedroom {index + 1}: </label>
-                    <select
-                        id={`Bedroom${index}`}
-                        {...register(`Bedrooms.${index}.Bedroom`, { required: index === 0 ? "At least one bedroom is required" : false })}
-                        onChange={(e) => {
-                            setBedrooms(prev => {
-                                const updated: Bedroom[] = [...prev]; // Especifica o tipo de `updated`
-                                updated[index].Bedroom = e.target.value;
-                                return updated;
-                            });
-                        }}
-                    >
-                        <option value="">Select a Bedroom Size</option>
-                        <option value="Small">Small</option>
-                        <option value="Medium">Medium</option>
-                        <option value="Large">Large</option>
-                        <option value="Extra Large">Extra Large</option>
-                    </select>
-                    <p className='error'>{errors.Bedrooms?.[index]?.Bedroom?.message}</p>
-
-                    <label htmlFor={`RoomName${index}`}>Room Name: </label>
-                    <input
-                        type="text"
-                        id={`RoomName${index}`}
-                        {...register(`Bedrooms.${index}.RoomName`, { required: { value: true, message: 'Especifique o nome do quarto' } })}
-                        onChange={(e) => {
-                            setBedrooms(prev => {
-                                const updated: Bedroom[] = [...prev]; // Especifica o tipo de `updated`
-                                updated[index].RoomName = e.target.value;
-                                return updated;
-                            });
-                        }}
-                    />
-                    <p className='error'>{errors.Bedrooms?.[index]?.RoomName?.message}</p>
-
-                    <label htmlFor={`Bed${index}`}>Bed: </label>
-                    <select
-                        id={`Bed${index}`}
-                        {...register(`Bedrooms.${index}.Bed`, { required: index === 0 ? "Select a Bed Type" : false })}
-                        onChange={(e) => {
-                            setBedrooms(prev => {
-                                const updated: Bedroom[] = [...prev]; // Especifica o tipo de `updated`
-                                updated[index].Bed = e.target.value;
-                                return updated;
-                            });
-                        }}
-                    >
-                        <option value="">Select a Bed Type</option>
-                        <option value="California King">California King</option>
-                        <option value="Extra Large King">Extra Large King</option>
-                        <option value="King">King</option>
-                        <option value="Queen">Queen</option>
-                        <option value="Double">Double</option>
-                        <option value="Twin">Twin</option>
-                        <option value="Skinny Twin">Skinny Twin</option>
-                        <option value="Trundle">Trundle</option>
-                        <option value="Bunk">Bunk</option>
-                        <option value="Sofa Bed">Sofa Bed</option>
-                    </select>
-                    <p className='error'>{errors.Bedrooms?.[index]?.Bed?.message}</p>
-
                     <div>
-                        <label htmlFor={`NumOfAditionalBeds${index}`}>Number of Additional Beds: </label>
+                        <label htmlFor={`Bedroom${index}`}><strong>Bedroom {index + 1}: </strong></label>
                         <select
-                            id={`NumOfAditionalBeds${index}`}
-                            {...register(`Bedrooms.${index}.NumOfAditionalBeds`)}
+                            id={`Quarto${index}`}
+                            {...register(`Bedrooms.${index}.Bedroom`, { required: index === 0 ? "At least one bedroom is required" : false })}
                             onChange={(e) => {
-                                const numberOfBeds = Number(e.target.value);
                                 setBedrooms(prev => {
                                     const updated: Bedroom[] = [...prev]; // Especifica o tipo de `updated`
-                                    updated[index].NumOfAditionalBeds = numberOfBeds;
-
-                                    // Se o número de camas adicionais mudar, redefina o array de camas adicionais
-                                    updated[index].AdditionalBeds = new Array(numberOfBeds).fill(""); // Inicializa o array com string vazia
+                                    updated[index].Bedroom = e.target.value;
                                     return updated;
                                 });
                             }}
                         >
-                            {generateOptions().map(number => (
-                                <option key={number} value={number}>{number}</option>
-                            ))}
+                            <option value="">Select a Bedroom Size</option>
+                            <option value="Small">Small</option>
+                            <option value="Medium">Medium</option>
+                            <option value="Large">Large</option>
+                            <option value="Extra Large">Extra Large</option>
                         </select>
+                        <p className='error'>{errors.Bedrooms?.[index]?.Bedroom?.message}</p>
+
+                        <label htmlFor={`RoomName${index}`}><strong>Room Name: </strong></label>
+                        <input
+                            type="text"
+                            id={`RoomName${index}`}
+                            {...register(`Bedrooms.${index}.RoomName`, { required: { value: true, message: 'Especifique o nome do quarto' } })}
+                            onChange={(e) => {
+                                setBedrooms(prev => {
+                                    const updated: Bedroom[] = [...prev]; // Especifica o tipo de `updated`
+                                    updated[index].RoomName = e.target.value;
+                                    return updated;
+                                });
+                            }}
+                        />
+                        <p className='error'>{errors.Bedrooms?.[index]?.RoomName?.message}</p>
                     </div>
 
-                    {/* Renderizando campos de camas adicionais com base no número selecionado */}
-                    {bedroom.NumOfAditionalBeds > 0 && (
+                    <div>
+                        <label htmlFor={`Bed${index}`}><strong>Bed: </strong></label>
+                        <select
+                            id={`Bed${index}`}
+                            {...register(`Bedrooms.${index}.Bed`, { required: index === 0 ? "Select a Bed Type" : false })}
+                            onChange={(e) => {
+                                setBedrooms(prev => {
+                                    const updated: Bedroom[] = [...prev]; // Especifica o tipo de `updated`
+                                    updated[index].Bed = e.target.value;
+                                    return updated;
+                                });
+                            }}
+                        >
+                            <option value="">Select a Bed Type</option>
+                            <option value="California King">California King</option>
+                            <option value="Extra Large King">Extra Large King</option>
+                            <option value="King">King</option>
+                            <option value="Queen">Queen</option>
+                            <option value="Double">Double</option>
+                            <option value="Twin">Twin</option>
+                            <option value="Skinny Twin">Skinny Twin</option>
+                            <option value="Trundle">Trundle</option>
+                            <option value="Bunk">Bunk</option>
+                            <option value="Sofa Bed">Sofa Bed</option>
+                        </select>
+                        <p className='error'>{errors.Bedrooms?.[index]?.Bed?.message}</p>
+
                         <div>
-                            {Array.from({ length: bedroom.NumOfAditionalBeds }).map((_, bedIndex) => (
-                                <div key={bedIndex}>
-                                    <label htmlFor={`AdditionalBed${index}_${bedIndex}`}>Additional Bed {bedIndex + 1}: </label>
-                                    <select
-                                        id={`AdditionalBed${index}_${bedIndex}`}
-                                        {...register(`Bedrooms.${index}.AdditionalBeds.${bedIndex}`, { required: "Select a Bed Type" })} // registro único para cada cama adicional
-                                        onChange={(e) => {
-                                            setBedrooms(prev => {
-                                                const updated: Bedroom[] = [...prev];
-                                                updated[index].AdditionalBeds[bedIndex] = e.target.value; // Atualiza a cama específica
-                                                return updated;
-                                            });
-                                        }}
-                                    >
-                                        <option value="">Select a bed type</option>
-                                        <option value="California King">California King</option>
-                                        <option value="Extra Large King">Extra Large King</option>
-                                        <option value="King">King</option>
-                                        <option value="Queen">Queen</option>
-                                        <option value="Double">Double</option>
-                                        <option value="Twin">Twin</option>
-                                        <option value="Skinny Twin">Skinny Twin</option>
-                                        <option value="Trundle">Trundle</option>
-                                        <option value="Bunk">Bunk</option>
-                                        <option value="Sofa Bed">Sofa Bed</option>
-                                    </select>
-                                    <p className='error'>{errors.Bedrooms?.[index]?.AdditionalBeds?.[bedIndex]?.message}</p>
-                                </div>
-                            ))}
+                            <label htmlFor={`NumOfAditionalBeds${index}`}><strong>Number of Additional Beds: </strong></label>
+                            <select
+                                id={`NumOfAditionalBeds${index}`}
+                                {...register(`Bedrooms.${index}.NumOfAditionalBeds`)}
+                                onChange={(e) => {
+                                    const numberOfBeds = Number(e.target.value);
+                                    setBedrooms(prev => {
+                                        const updated: Bedroom[] = [...prev]; // Especifica o tipo de `updated`
+                                        updated[index].NumOfAditionalBeds = numberOfBeds;
+
+                                        // Se o número de camas adicionais mudar, redefina o array de camas adicionais
+                                        updated[index].AdditionalBeds = new Array(numberOfBeds).fill(""); // Inicializa o array com string vazia
+                                        return updated;
+                                    });
+                                }}
+                            >
+                                {generateOptions().map(number => (
+                                    <option key={number} value={number}>{number}</option>
+                                ))}
+                            </select>
                         </div>
-                    )}
+
+                        {/* Renderizando campos de camas adicionais com base no número selecionado */}
+                        {bedroom.NumOfAditionalBeds > 0 && (
+                            <div>
+                                {Array.from({ length: bedroom.NumOfAditionalBeds }).map((_, bedIndex) => (
+                                    <div key={bedIndex}>
+                                        <label htmlFor={`AdditionalBed${index}_${bedIndex}`}><strong>Additional Bed {bedIndex + 1}: </strong></label>
+                                        <select
+                                            id={`AdditionalBed${index}_${bedIndex}`}
+                                            {...register(`Bedrooms.${index}.AdditionalBeds.${bedIndex}`, { required: "Select a Bed Type" })} // registro único para cada cama adicional
+                                            onChange={(e) => {
+                                                setBedrooms(prev => {
+                                                    const updated: Bedroom[] = [...prev];
+                                                    updated[index].AdditionalBeds[bedIndex] = e.target.value; // Atualiza a cama específica
+                                                    return updated;
+                                                });
+                                            }}
+                                        >
+                                            <option value="">Select a bed type</option>
+                                            <option value="California King">California King</option>
+                                            <option value="Extra Large King">Extra Large King</option>
+                                            <option value="King">King</option>
+                                            <option value="Queen">Queen</option>
+                                            <option value="Double">Double</option>
+                                            <option value="Twin">Twin</option>
+                                            <option value="Skinny Twin">Skinny Twin</option>
+                                            <option value="Trundle">Trundle</option>
+                                            <option value="Bunk">Bunk</option>
+                                            <option value="Sofa Bed">Sofa Bed</option>
+                                        </select>
+                                        <p className='error'>{errors.Bedrooms?.[index]?.AdditionalBeds?.[bedIndex]?.message}</p>
+                                    </div>
+                                ))}
+                            </div>
+                        )}
+                    </div>
 
                     <div>
                         <label htmlFor={`BeddingAndLinens${index}`}><strong>Bedding and linens: </strong></label>
@@ -289,7 +293,7 @@ export const Tab8: React.FC<Tab8Props> = ({ register, errors }) => {
                     </div>
 
                     <div>
-                        <label htmlFor={`ToiletryBrand${index}`}>Toiletry Brand: </label>
+                        <label htmlFor={`ToiletryBrand${index}`}><strong>Toiletry Brand: </strong></label>
                         <input
                             type="text"
                             id={`ToiletryBrand${index}`}
@@ -304,8 +308,8 @@ export const Tab8: React.FC<Tab8Props> = ({ register, errors }) => {
                         />
                     </div>
 
+                    <label><strong>Bedroom Amenities: </strong></label>
                     <div className="amenities-grid">
-                        <label><strong>Bedroom Amenities: </strong></label>
                         {amenitiesOptions.map(amenity => (
                             <div key={amenity} className="amenity-item">
                                 <input
@@ -335,8 +339,8 @@ export const Tab8: React.FC<Tab8Props> = ({ register, errors }) => {
                         ))}
                     </div>
 
+                    <label><strong>Bathroom: </strong></label>
                     <div className="amenities-grid">
-                        <label><strong>Bathroom: </strong></label>
                         {bathroomOptions.map(bathroom => (
                             <div key={bathroom} className="amenity-item">
                                 <input
@@ -367,7 +371,7 @@ export const Tab8: React.FC<Tab8Props> = ({ register, errors }) => {
                     </div>
 
                     <div>
-                        <label htmlFor={`AdditionalNotesBedrooms${index}`}>Additional Notes for Bedrooms: </label>
+                        <label htmlFor={`AdditionalNotesBedrooms${index}`}><strong>Additional Notes for Bedrooms: </strong></label>
                         <textarea
                             id={`AdditionalNotesBedrooms${index}`}
                             {...register(`Bedrooms.${index}.AdditionalNotesBedrooms`)}
@@ -382,7 +386,7 @@ export const Tab8: React.FC<Tab8Props> = ({ register, errors }) => {
                     </div>
 
                     <div>
-                        <label htmlFor={`NotesToOwnerBedrooms${index}`}>Notes to Owner Bedrooms: </label>
+                        <label htmlFor={`NotesToOwnerBedrooms${index}`}><strong>Notes to Owner Bedrooms: </strong></label>
                         <textarea
                             id={`NotesToOwnerBedrooms${index}`}
                             {...register(`Bedrooms.${index}.NotesToOwnerBedrooms`)}

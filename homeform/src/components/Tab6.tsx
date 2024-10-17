@@ -33,8 +33,8 @@ export const Tab6: React.FC<Tab6Props> = ({ register, errors }) => {
     return (
         <div className='container'>
 
+            <label><strong>Kitchen & Dining: </strong></label>
             <div className="amenities-grid">
-                <label><strong>Kitchen & Dining: </strong></label>
                 {kitchenDiningOptions.map((option, index) => (
                     <div key={index} className="amenity-item"   >
                         <input
@@ -48,8 +48,8 @@ export const Tab6: React.FC<Tab6Props> = ({ register, errors }) => {
                 ))}
             </div>
 
+            <label><strong>Entertainment: </strong></label>
             <div className="amenities-grid">
-                <label><strong>Entertainment: </strong></label>
                 {entertainmentDiningOptions.map((option, index) => (
                     <div key={index} className="amenity-item"   >
                         <input
@@ -63,8 +63,8 @@ export const Tab6: React.FC<Tab6Props> = ({ register, errors }) => {
                 ))}
             </div>
 
+            <label><strong>Heating/Cooling: </strong></label>
             <div className="amenities-grid">
-                <label><strong>Heating/Cooling: </strong></label>
                 {heatingCoolingOptions.map((option, index) => (
                     <div key={index} className="amenity-item"   >
                         <input
@@ -79,29 +79,29 @@ export const Tab6: React.FC<Tab6Props> = ({ register, errors }) => {
             </div>
 
             <div>
-                <label htmlFor="NumOfIndoorLivingAreaSeats">Indoor Living Area Seats Number: </label>
+                <label htmlFor="NumOfIndoorLivingAreaSeats"><strong>Indoor Living Area Seats Number: </strong></label>
                 <input type="text" id="NumOfIndoorLivingAreaSeats" {...register("NumOfIndoorLivingAreaSeats", { required: { value: false, message: 'Indoor Living Area Seats Number is required' } })} />
                 <p className='error'>{errors.NumOfIndoorLivingAreaSeats?.message}</p>
 
-                <label htmlFor="NumOfIndoorDinningAreaSeats">Indoor Dinning Area Seats Number: </label>
+                <label htmlFor="NumOfIndoorDinningAreaSeats"><strong>Indoor Dinning Area Seats Number: </strong></label>
                 <input type="text" id="NumOfIndoorDinningAreaSeats" {...register("NumOfIndoorDinningAreaSeats", { required: { value: false, message: 'Indoor Dinning Area Seats Number is required' } })} />
                 <p className='error'>{errors.NumOfIndoorDinningAreaSeats?.message}</p>
             </div>
 
             <div>
-                <label htmlFor='AdditionalNotesInteriror'>Additional Notes: </label>
+                <label htmlFor='AdditionalNotesInteriror'><strong>Additional Notes: </strong></label>
                 <textarea id="AdditionalNotesInteriror" {...register("AdditionalNotesInteriror", { required: { value: false, message: 'Additional Notes Interiror não pode estar vazia' } })} />
                 <p className='error'>{errors.AdditionalNotesInteriror?.message}</p>
             </div>
 
             <div>
-                <label htmlFor='NotesToOwnerInteriror'>Notes to Owner (Internal use Only): </label>
+                <label htmlFor='NotesToOwnerInteriror'><strong>Notes to Owner (Internal use Only): </strong></label>
                 <textarea id="NotesToOwnerInteriror" {...register("NotesToOwnerInteriror", { required: { value: false, message: 'Notes To Owner Interiror não pode estar vazia' } })} />
                 <p className='error'>{errors.NotesToOwnerInteriror?.message}</p>
             </div>
 
             <div>
-                <label htmlFor='SpecialFeaturesInterior'>Special Features: </label>
+                <label htmlFor='SpecialFeaturesInterior'><strong>Special Features: </strong></label>
                 <textarea id="SpecialFeaturesInterior" {...register("SpecialFeaturesInterior", { required: { value: false, message: 'Special Features não pode estar vazia' } })} />
                 <p className='error'>{errors.SpecialFeaturesInterior?.message}</p>
             </div>

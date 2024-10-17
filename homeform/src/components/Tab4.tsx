@@ -26,8 +26,8 @@ export const Tab4: React.FC<Tab4Props> = ({ register, errors }) => {
     return (
         <div className='container'>
 
+            <label><strong>Theme: </strong></label>
             <div className="amenities-grid">
-                <label><strong>Theme: </strong></label>
                 {themeOptions.map((option, index) => (
                     <div key={index} className="amenity-item"   >
                         <input
@@ -42,19 +42,19 @@ export const Tab4: React.FC<Tab4Props> = ({ register, errors }) => {
             </div>
 
             <div>
-                <label htmlFor="MinimumAgeOfGuest">Minimum Age of Guest: </label>
+                <label htmlFor="MinimumAgeOfGuest"><strong>Minimum Age of Guest: </strong></label>
                 <input type="text" id="MinimumAgeOfGuest" {...register("MinimumAgeOfGuest", { required: { value: false, message: 'Minimum Age of Guest is required' } })} />
                 <p className='error'>{errors.MinimumAgeOfGuest?.message}</p>
             </div>
 
             <div>
-                <label htmlFor='Memberships'>Any Memberships: </label>
+                <label htmlFor='Memberships'><strong>Any Memberships: </strong></label>
                 <textarea id="Memberships" {...register("Memberships", { required: { value: false, message: 'Memberships não pode estar vazia' } })} />
                 <p className='error'>{errors.SpecialFeaturesExterior?.message}</p>
             </div>
 
+            <label><strong><strong>Suitability: </strong></strong></label>
             <div className="amenities-grid">
-                <label><strong>Suitability: </strong></label>
                 {suitabilityOptions.map((option, index) => (
                     <div key={index} className="amenity-item"   >
                         <input
@@ -124,27 +124,27 @@ export const Tab4: React.FC<Tab4Props> = ({ register, errors }) => {
             </div>
 
             <div>
-                <label htmlFor="MinutesNameOfAirport">Minutes To / Name of Airport: </label>
+                <label htmlFor="MinutesNameOfAirport"><strong>Minutes To / Name of Airport: </strong></label>
                 <input type="text" id="MinutesNameOfAirport" {...register("MinutesNameOfAirport", { required: { value: false, message: 'Minutes To / Name of Airport is required' } })} />
                 <p className='error'>{errors.MinutesNameOfAirport?.message}</p>
 
-                <label htmlFor="MinutesNameOfAttaction">Minutes To / Name of Nearest Attraction: </label>
+                <label htmlFor="MinutesNameOfAttaction"><strong>Minutes To / Name of Nearest Attraction: </strong></label>
                 <input type="text" id="MinutesNameOfAttaction" {...register("MinutesNameOfAttaction", { required: { value: false, message: 'Minutes To / Name of Nearest Attraction is required' } })} />
                 <p className='error'>{errors.MinutesNameOfAttaction?.message}</p>
 
-                <label htmlFor="MinutesNameOfVillage">Minutes To/ Name of Nearest Village: </label>
+                <label htmlFor="MinutesNameOfVillage"><strong>Minutes To/ Name of Nearest Village: </strong></label>
                 <input type="text" id="MinutesNameOfVillage" {...register("MinutesNameOfVillage", { required: { value: false, message: 'Minutes To/ Name of Nearest Village is required' } })} />
                 <p className='error'>{errors.MinutesNameOfVillage?.message}</p>
             </div>
 
             <div>
-                <label htmlFor='ExplainRatingBelow3'>Explain any Rating Below 3 Stars: </label>
+                <label htmlFor='ExplainRatingBelow3'><strong>Explain any Rating Below 3 Stars: </strong></label>
                 <textarea id="ExplainRatingBelow3" {...register("ExplainRatingBelow3", { required: { value: false, message: 'Explain any Rating Below 3 Stars não pode estar vazia' } })} />
                 <p className='error'>{errors.ExplainRatingBelow3?.message}</p>
             </div>
 
             <div>
-                <label htmlFor='KnowBeforeGo'>Know Before You Go: </label>
+                <label htmlFor='KnowBeforeGo'><strong>Know Before You Go: </strong></label>
                 <textarea id="KnowBeforeGo" {...register("KnowBeforeGo", { required: { value: false, message: 'Know Before You Go não pode estar vazia' } })} />
                 <p className='error'>{errors.KnowBeforeGo?.message}</p>
             </div>

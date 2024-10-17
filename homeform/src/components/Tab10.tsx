@@ -26,8 +26,9 @@ export const Tab10: React.FC<Tab10Props> = ({ register, errors }) => {
         <div className='container'>
 
             <div id='title'>Only necessary for NEW destinations or communities.</div>
+
+            <label><strong>Cultural: </strong></label>
             <div className="amenities-grid">
-                <label><strong>Cultural: </strong></label>
                 {culturalOptions.map((option, index) => (
                     <div key={index} className="amenity-item"   >
                         <input
@@ -41,8 +42,8 @@ export const Tab10: React.FC<Tab10Props> = ({ register, errors }) => {
                 ))}
             </div>
 
+            <label><strong>Leisure: </strong></label>
             <div className="amenities-grid">
-                <label><strong>Leisure: </strong></label>
                 {leisureOptions.map((option, index) => (
                     <div key={index} className="amenity-item"   >
                         <input

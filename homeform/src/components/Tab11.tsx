@@ -43,13 +43,14 @@ export const Tab11: React.FC<Tab11Props> = ({ register, errors }) => {
         <div className='container'>
 
             <div id='title'>Only necessary for NEW destinations or communities.</div>
+
+            <label><strong>Active: </strong></label>
             <div className="amenities-grid">
-                <label><strong>Active: </strong></label>
                 {activeOptions.map((option, index) => (
                     <div key={index} className="amenity-item"   >
                         <input
                             type="checkbox"
-                            id={`Sports-${index}`}
+                            id={`Active-${index}`}
                             value={option}
                             {...register("Active")}
                         />
@@ -59,13 +60,13 @@ export const Tab11: React.FC<Tab11Props> = ({ register, errors }) => {
                 ))}
             </div>
 
+            <label><strong>Golf: </strong></label>
             <div className="amenities-grid">
-                <label><strong>Golf: </strong></label>
                 {golfOptions.map((option, index) => (
                     <div key={index} className="amenity-item"   >
                         <input
                             type="checkbox"
-                            id={`Sports-${index}`}
+                            id={`Golf-${index}`}
                             value={option}
                             {...register("Golf")}
                         />
@@ -75,13 +76,13 @@ export const Tab11: React.FC<Tab11Props> = ({ register, errors }) => {
                 ))}
             </div>
 
+            <label><strong>Hiking and Biking: </strong></label>
             <div className="amenities-grid">
-                <label><strong>Hiking and Biking: </strong></label>
                 {hikingBikingOptions.map((option, index) => (
                     <div key={index} className="amenity-item"   >
                         <input
                             type="checkbox"
-                            id={`Sports-${index}`}
+                            id={`HikingBiking-${index}`}
                             value={option}
                             {...register("HikingBiking")}
                         />
@@ -91,13 +92,13 @@ export const Tab11: React.FC<Tab11Props> = ({ register, errors }) => {
                 ))}
             </div>
 
+            <label><strong>Water Sports: </strong></label>
             <div className="amenities-grid">
-                <label><strong>Water Sports: </strong></label>
                 {waterSportsOptions.map((option, index) => (
                     <div key={index} className="amenity-item"   >
                         <input
                             type="checkbox"
-                            id={`Sports-${index}`}
+                            id={`WaterSports-${index}`}
                             value={option}
                             {...register("WaterSports")}
                         />
@@ -107,13 +108,13 @@ export const Tab11: React.FC<Tab11Props> = ({ register, errors }) => {
                 ))}
             </div>
 
+            <label><strong>Winter Activities: </strong></label>
             <div className="amenities-grid">
-                <label><strong>Winter Activities: </strong></label>
                 {winterActivitiesOptions.map((option, index) => (
                     <div key={index} className="amenity-item"   >
                         <input
                             type="checkbox"
-                            id={`Sports-${index}`}
+                            id={`WinterActivities-${index}`}
                             value={option}
                             {...register("WinterActivities")}
                         />
