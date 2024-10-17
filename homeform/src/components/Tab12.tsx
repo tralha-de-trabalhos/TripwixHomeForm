@@ -23,8 +23,9 @@ export const Tab12: React.FC<Tab12Props> = ({ register, errors }) => {
         <div className='container'>
 
             <div id='title'>Only necessary for NEW destinations or communities.</div>
+
+            <label><strong>Experiences: </strong></label>
             <div className="amenities-grid">
-                <label><strong>Experiences: </strong></label>
                 {experiencesOptions.map((option, index) => (
                     <div key={index} className="amenity-item"   >
                         <input

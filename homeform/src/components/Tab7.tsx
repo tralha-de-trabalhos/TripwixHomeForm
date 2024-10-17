@@ -25,8 +25,8 @@ export const Tab7: React.FC<Tab7Props> = ({ register, errors }) => {
     return (
         <div className='container'>
 
+            <label><strong>Outdoor Features: </strong></label>
             <div className="amenities-grid">
-                <label><strong>Outdoor Features: </strong></label>
                 {outdoorFeaturesOptions.map((option, index) => (
                     <div key={index} className="amenity-item"   >
                         <input
@@ -40,8 +40,8 @@ export const Tab7: React.FC<Tab7Props> = ({ register, errors }) => {
                 ))}
             </div>
 
+            <label><strong>Pool & Spa Facilities: </strong></label>
             <div className="amenities-grid">
-                <label><strong>Pool & Spa Facilities: </strong></label>
                 {poolSpaFacilitiesOptions.map((option, index) => (
                     <div key={index} className="amenity-item"   >
                         <input
@@ -56,46 +56,47 @@ export const Tab7: React.FC<Tab7Props> = ({ register, errors }) => {
             </div>
 
             <div>
-                <label htmlFor="NumOfExteriorLivingSeats">Exterior Living Seats Number: </label>
+                <label htmlFor="NumOfExteriorLivingSeats"><strong>Exterior Living Seats Number: </strong></label>
                 <input type="text" id="NumOfExteriorLivingSeats" {...register("NumOfExteriorLivingSeats", { required: { value: false, message: 'Exterior Living Seats Number is required' } })} />
                 <p className='error'>{errors.NumOfExteriorLivingSeats?.message}</p>
 
-                <label htmlFor="NumOfExteriorDiningSeats">Exterior Dining Seats Number: </label>
+                <label htmlFor="NumOfExteriorDiningSeats"><strong>Exterior Dining Seats Number: </strong></label>
                 <input type="text" id="NumOfExteriorDiningSeats" {...register("NumOfExteriorDiningSeats", { required: { value: false, message: 'Exterior Dining Seats Number is required' } })} />
                 <p className='error'>{errors.NumOfExteriorDiningSeats?.message}</p>
 
-                <label htmlFor="NumOfPatioLoungers">Number of Patio Loungers: </label>
+                <label htmlFor="NumOfPatioLoungers"><strong>Number of Patio Loungers: </strong></label>
                 <input type="text" id="NumOfPatioLoungers" {...register("NumOfPatioLoungers", { required: { value: false, message: 'Number of Patio Loungers is required' } })} />
                 <p className='error'>{errors.NumOfPatioLoungers?.message}</p>
-
-                <label htmlFor="PoolSize">Pool Size: </label>
-                <input type="text" id="PoolSize" {...register("PoolSize", { required: { value: false, message: 'Pool Size is required' } })} />
-                <p className='error'>{errors.PoolSize?.message}</p>
-
-                <label htmlFor="JacuzziSize">Jacuzzi Size: </label>
-                <input type="text" id="JacuzziSize" {...register("JacuzziSize", { required: { value: false, message: 'Jacuzzi Size is required' } })} />
-                <p className='error'>{errors.JacuzziSize?.message}</p>
-
-                <label htmlFor="NumOfGardenGrounds">Garden/Grounds: </label>
-                <input type="text" id="NumOfGardenGrounds" {...register("NumOfGardenGrounds", { required: { value: false, message: 'Garden/Grounds is required' } })} />
-                <p className='error'>{errors.NumOfGardenGrounds?.message}</p>
-
             </div>
 
             <div>
-                <label htmlFor='AdditionalNotesExteriror'>Additional Notes: </label>
+                <label htmlFor="PoolSize"><strong>Pool Size: </strong></label>
+                <input type="text" id="PoolSize" {...register("PoolSize", { required: { value: false, message: 'Pool Size is required' } })} />
+                <p className='error'>{errors.PoolSize?.message}</p>
+
+                <label htmlFor="JacuzziSize"><strong>Jacuzzi Size: </strong></label>
+                <input type="text" id="JacuzziSize" {...register("JacuzziSize", { required: { value: false, message: 'Jacuzzi Size is required' } })} />
+                <p className='error'>{errors.JacuzziSize?.message}</p>
+
+                <label htmlFor="NumOfGardenGrounds"><strong>Garden/Grounds: </strong></label>
+                <input type="text" id="NumOfGardenGrounds" {...register("NumOfGardenGrounds", { required: { value: false, message: 'Garden/Grounds is required' } })} />
+                <p className='error'>{errors.NumOfGardenGrounds?.message}</p>
+            </div>
+
+            <div>
+                <label htmlFor='AdditionalNotesExteriror'><strong>Additional Notes: </strong></label>
                 <textarea id="AdditionalNotesExteriror" {...register("AdditionalNotesExteriror", { required: { value: false, message: 'Additional Notes Interiror não pode estar vazia' } })} />
                 <p className='error'>{errors.AdditionalNotesExteriror?.message}</p>
             </div>
 
             <div>
-                <label htmlFor='NotesToOwnerExteriror'>Notes to Owner (Internal use Only): </label>
+                <label htmlFor='NotesToOwnerExteriror'><strong>Notes to Owner (Internal use Only): </strong></label>
                 <textarea id="NotesToOwnerExteriror" {...register("NotesToOwnerExteriror", { required: { value: false, message: 'Notes To Owner Interiror não pode estar vazia' } })} />
                 <p className='error'>{errors.NotesToOwnerExteriror?.message}</p>
             </div>
 
             <div>
-                <label htmlFor='SpecialFeaturesExterior'>Special Features: </label>
+                <label htmlFor='SpecialFeaturesExterior'><strong>Special Features: </strong></label>
                 <textarea id="SpecialFeaturesExterior" {...register("SpecialFeaturesExterior", { required: { value: false, message: 'Special Features não pode estar vazia' } })} />
                 <p className='error'>{errors.SpecialFeaturesExterior?.message}</p>
             </div>
